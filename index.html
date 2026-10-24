@@ -1,0 +1,3691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RNS Site Office — Bill · Quotation · Measurement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f1d2c;
+      --navy-2: #1c2d40;
+      --navy-3: #293f56;
+      --slate: #4a5c6e;
+      --slate-light: #7e8e9e;
+      --paper: #f4f6f9;
+      --card: #ffffff;
+      --line: #e2e8f0;
+      --line-strong: #cbd5e1;
+      --amber: #d97706;
+      --amber-dark: #b45309;
+      --amber-light: #fef3c7;
+      --green: #15803d;
+      --green-light: #dcfce7;
+      --red: #dc2626;
+      --red-light: #fee2e2;
+      --ink: #0f172a;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+      --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.015em;
+    }
+
+    a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    /* ---------- App Shell ---------- */
+    #appHeader {
+      background: rgba(15, 29, 44, 0.95);
+      color: #fff;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 4px 20px -2px rgba(15, 29, 44, 0.25);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    #appHeader .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform .15s ease;
+    }
+
+    #appHeader .brand:hover {
+      transform: scale(1.02);
+    }
+
+    #appHeader .brand .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #0f1d2c;
+      font-size: 15px;
+      box-shadow: 0 3px 10px rgba(217, 119, 6, 0.35);
+      letter-spacing: .5px;
+    }
+
+    #appHeader .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      min-width: 0;
+    }
+
+    #appHeader .brand-text .t1 {
+      font-size: 15.5px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 46vw;
+      color: #ffffff;
+    }
+
+    #appHeader .brand-text .t2 {
+      font-size: 11.5px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    #appHeader nav {
+      display: flex;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    #appHeader nav button {
+      background: transparent;
+      border: none;
+      color: #cbd5e1;
+      padding: 7px 14px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all .16s ease;
+    }
+
+    #appHeader nav button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    #appHeader nav button.active {
+      background: #ffffff;
+      color: var(--navy);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      font-weight: 700;
+    }
+
+    #navToggle {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      font-size: 18px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    #navToggle:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    #mobileNavDropdown {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: #112030;
+      padding: 12px;
+      position: sticky;
+      top: 58px;
+      z-index: 49;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-lg);
+    }
+
+    #mobileNavDropdown.show {
+      display: flex;
+    }
+
+    #mobileNavDropdown button {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 14.5px;
+      font-weight: 600;
+      text-align: left;
+      transition: background .12s ease;
+    }
+
+    #mobileNavDropdown button.active {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      border-color: #d97706;
+      color: #0f1d2c;
+      font-weight: 800;
+    }
+
+    #appMain {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 26px 20px 70px;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+      animation: fadeIn .18s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(3px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------- Dashboard ---------- */
+    .dash-hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .dash-title {
+      margin-bottom: 4px;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    .dash-sub {
+      color: var(--slate);
+      font-size: 13.5px;
+      margin: 0;
+    }
+
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .dash-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .dash-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px 22px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.03);
+      cursor: pointer;
+      transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 175px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dash-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3.5px;
+      background: linear-gradient(90deg, #d97706, #fbbf24);
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+
+    .dash-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -6px rgba(15, 29, 44, 0.09), 0 4px 8px -2px rgba(15, 29, 44, 0.04);
+      border-color: #cbd5e1;
+    }
+
+    .dash-card:hover::before {
+      opacity: 1;
+    }
+
+    .dash-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      color: #92400e;
+      margin-bottom: 4px;
+      box-shadow: 0 2px 4px rgba(217, 119, 6, 0.12);
+    }
+
+    .dash-card h3 {
+      font-size: 17.5px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dash-card p {
+      margin: 0;
+      color: var(--slate);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .dash-card .go {
+      margin-top: auto;
+      font-size: 13px;
+      color: var(--amber-dark);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap .15s ease;
+    }
+
+    .dash-card:hover .go {
+      color: var(--amber);
+      gap: 9px;
+    }
+
+    .dash-secrow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .dash-mini {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all .2s ease;
+    }
+
+    .dash-mini:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .dash-mini .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      background: #f1f5f9;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .dash-mini h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .dash-mini p {
+      margin: 2px 0 0;
+      color: var(--slate);
+      font-size: 12.5px;
+    }
+
+    /* ---------- Toolbar ---------- */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px -1px rgba(15, 23, 42, 0.04);
+      position: sticky;
+      top: 60px;
+      z-index: 40;
+      backdrop-filter: blur(8px);
+    }
+
+    .toolbar .title-block {
+      margin-right: auto;
+    }
+
+    .toolbar .title-block h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .toolbar .title-block .sub {
+      font-size: 12px;
+      color: var(--slate);
+      font-weight: 500;
+    }
+
+    .btn {
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--navy);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+      transition: all .16s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+      user-select: none;
+    }
+
+    .btn:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 6px rgba(15, 23, 42, 0.08);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(15, 29, 44, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #1c3249;
+      border-color: #1c3249;
+      color: #ffffff;
+    }
+
+    .btn-amber {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      border-color: #d97706;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-amber:hover {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      border-color: #b45309;
+      color: #ffffff;
+    }
+
+    .btn-danger {
+      color: var(--red);
+      border-color: #fecaca;
+      background: #fff5f5;
+    }
+
+    .btn-danger:hover {
+      background: #fee2e2;
+      border-color: #fca5a5;
+    }
+
+    .btn-sm {
+      padding: 6px 11px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+
+    .btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ---------- Form Layout ---------- */
+    .panel {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+    }
+
+    .panel h3 {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #edf2f7;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel h3::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 14px;
+      background: var(--amber);
+      border-radius: 2px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .grid-4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field label {
+      font-size: 12.5px;
+      color: #475569;
+      font-weight: 600;
+      letter-spacing: .1px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 9px 12px;
+      background: #ffffff;
+      color: #0f172a;
+      transition: all .15s ease;
+      font-size: 13.5px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+    }
+
+    .field input:hover,
+    .field select:hover,
+    .field textarea:hover {
+      border-color: #94a3b8;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: #d97706;
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.18);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 58px;
+      line-height: 1.45;
+    }
+
+    .field.checkline {
+      flex-direction: row;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .field.checkline label {
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+    }
+
+    .field.checkline input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: var(--amber);
+    }
+
+    .hint {
+      font-size: 11.5px;
+      color: var(--slate-light);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* =====================================================================
+   RESPONSIVE BREAKPOINTS
+   Desktop: default (>1024px) · Tablet: 701px–1024px · Mobile: ≤700px
+   ===================================================================== */
+
+    /* ---- Tablet ---- */
+    @media(max-width:1024px) {
+      #appMain {
+        max-width: 100%;
+      }
+
+      .dash-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ---- Tablet + Mobile shared ---- */
+    @media(max-width:820px) {
+      .dash-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-secrow {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- Mobile ---- */
+    @media(max-width:700px) {
+      body {
+        font-size: 13.5px;
+      }
+
+      #appHeader {
+        padding: 8px 12px;
+      }
+
+      #appHeader .brand .mark {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+      }
+
+      #appHeader .brand-text .t1 {
+        font-size: 13.5px;
+      }
+
+      #appHeader .brand-text .t2 {
+        display: none;
+      }
+
+      #appHeader nav {
+        display: none;
+      }
+
+      #navToggle {
+        display: flex;
+      }
+
+      .toolbar {
+        position: sticky;
+        top: 48px;
+      }
+
+      #mobileNavDropdown {
+        top: 48px;
+      }
+
+      #appMain {
+        padding: 14px 10px 50px;
+      }
+
+      .panel {
+        padding: 14px 12px;
+      }
+
+      .dash-card {
+        padding: 16px 14px;
+        min-height: auto;
+      }
+
+      .dash-mini {
+        padding: 12px 14px;
+      }
+
+      .toolbar {
+        padding: 9px 10px;
+        gap: 6px;
+      }
+
+      .toolbar .title-block {
+        width: 100%;
+        margin-right: 0;
+        order: -1;
+      }
+
+      .btn {
+        padding: 10px 12px;
+        font-size: 13.5px;
+        min-height: 40px;
+      }
+
+      .btn-sm {
+        padding: 8px 10px;
+        font-size: 12.5px;
+        min-height: 34px;
+      }
+
+      .row-del {
+        font-size: 18px;
+        padding: 6px 8px;
+        min-width: 32px;
+      }
+
+      /* Prevent iOS Safari auto-zoom on focus by keeping inputs >=16px */
+      .field input,
+      .field select,
+      .field textarea {
+        font-size: 16px;
+        padding: 9px 10px;
+      }
+
+      table.items input,
+      table.items select {
+        font-size: 13px;
+      }
+
+      .room-head {
+        flex-wrap: wrap;
+      }
+
+      .room-head input.room-name {
+        min-width: 140px;
+      }
+
+      .room-totals {
+        gap: 10px;
+        font-size: 12.5px;
+      }
+
+      .summary-box {
+        width: 100%;
+      }
+
+      .modal-overlay {
+        padding: 10px;
+        align-items: flex-end;
+      }
+
+      .modal-box {
+        max-height: 92vh;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .modal-body {
+        padding: 14px 14px;
+      }
+
+      .modal-foot {
+        flex-wrap: wrap;
+      }
+
+      .modal-foot .btn {
+        flex: 1;
+        justify-content: center;
+      }
+
+      #previewOverlay {
+        padding: 0;
+      }
+
+      #previewShell {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #previewToolbar {
+        padding: 9px 12px;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      #previewToolbar .pactions {
+        width: 100%;
+      }
+
+      #previewToolbar .pactions .btn {
+        flex: 1;
+        justify-content: center;
+      }
+
+      #printArea {
+        overflow-x: auto;
+        padding: 14px 0;
+        flex: 1;
+      }
+
+      #printArea .doc {
+        min-width: 640px;
+        margin: 0 auto;
+        padding: 0 14px;
+      }
+
+      .drafts-table th,
+      .drafts-table td {
+        padding: 8px 6px;
+        font-size: 12.5px;
+      }
+
+      .dash-title {
+        font-size: 20px;
+      }
+    }
+
+    /* ---------- Items Table ---------- */
+    .items-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #fff;
+    }
+
+    table.items {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px;
+    }
+
+    table.items th {
+      background: #f8fafc;
+      color: var(--navy);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      padding: 10px 8px;
+      text-align: left;
+      border-bottom: 2px solid var(--line);
+      white-space: nowrap;
+    }
+
+    table.items td {
+      padding: 6px 7px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+
+    table.items input,
+    table.items select {
+      width: 100%;
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 6px 7px;
+      border-radius: 5px;
+      transition: all .15s ease;
+    }
+
+    table.items input:hover,
+    table.items select:hover {
+      border-color: var(--line);
+      background: #fff;
+    }
+
+    table.items input:focus,
+    table.items select:focus {
+      border-color: var(--amber);
+      background: #fff;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.15);
+    }
+
+    table.items input[type=number] {
+      text-align: right;
+    }
+
+    table.items tr:hover td {
+      background: #fafbfd;
+    }
+
+    .row-del {
+      background: transparent;
+      border: none;
+      color: var(--slate-light);
+      font-size: 18px;
+      line-height: 1;
+      padding: 4px 6px;
+      border-radius: 5px;
+      transition: all .15s ease;
+    }
+
+    .row-del:hover {
+      background: var(--red-light);
+      color: var(--red);
+    }
+
+    .add-row-btn {
+      margin-top: 10px;
+    }
+
+    .amt-cell {
+      font-weight: 700;
+      text-align: right;
+      color: var(--navy);
+      display: block;
+      padding-right: 4px;
+    }
+
+    tfoot td {
+      font-weight: 700;
+      padding: 10px 8px;
+      border-top: 2px solid var(--navy);
+      background: #f8fafc;
+    }
+
+    /* ---------- Room Blocks (Measurement) ---------- */
+    .room-block {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .room-head {
+      background: #f1f5f9;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .room-head input.room-name {
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 5px 8px;
+      border-radius: 6px;
+      flex: 1;
+    }
+
+    .room-head input.room-name:hover,
+    .room-head input.room-name:focus {
+      border-color: var(--line-strong);
+      background: #fff;
+    }
+
+    .room-body {
+      padding: 12px 14px;
+    }
+
+    .room-sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      margin: 8px 0 4px;
+    }
+
+    .room-totals {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 10px 14px;
+      background: #f8fafc;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .room-totals b {
+      color: var(--navy);
+    }
+
+    .room-totals .after-less {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* ---------- Summary box ---------- */
+    .summary-box {
+      margin-left: auto;
+      width: 360px;
+      max-width: 100%;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+      font-size: 13.5px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .summary-row.grand {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--navy);
+      border-bottom: none;
+      border-top: 2px solid var(--navy);
+      padding-top: 10px;
+      margin-top: 6px;
+    }
+
+    .words-box {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 9px 12px;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--slate);
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    /* ---------- Drafts list ---------- */
+    .drafts-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .drafts-table th {
+      text-align: left;
+      font-size: 11.5px;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: .3px;
+      padding: 8px 10px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .drafts-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13.5px;
+    }
+
+    .drafts-table tr:hover td {
+      background: #fbfaf7;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #eef1f3;
+      color: var(--navy);
+    }
+
+    .tag.bill {
+      background: #e6eef7;
+      color: #274a6e;
+    }
+
+    .tag.quote {
+      background: #eef4ec;
+      color: #2f5d3e;
+    }
+
+    .tag.random {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+
+    .tag.measure {
+      background: #f6ecdc;
+      color: #8a5a15;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--slate);
+    }
+
+    .empty-state .big {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    /* ---------- Toast ---------- */
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--navy);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+      opacity: 0;
+      pointer-events: none;
+      transition: all .25s ease;
+      z-index: 200;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ---------- Modal ---------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 43, 58, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 150;
+      padding: 20px;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 12px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 88vh;
+      overflow: auto;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+    }
+
+    .modal-head {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-head h3 {
+      font-size: 15px;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--slate);
+    }
+
+    .modal-body {
+      padding: 18px 20px;
+    }
+
+    .modal-foot {
+      padding: 14px 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    /* ---------- Preview / Print document ---------- */
+    #previewOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 43, 58, .55);
+      z-index: 180;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: auto;
+      padding: 26px 12px;
+    }
+
+    #previewOverlay.show {
+      display: flex;
+    }
+
+    #previewShell {
+      background: #fff;
+      width: 820px;
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+      overflow: hidden;
+    }
+
+    #previewToolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    #previewToolbar .ptitle {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    #previewToolbar .pactions {
+      display: flex;
+      gap: 8px;
+    }
+
+    #previewToolbar .btn {
+      background: rgba(255, 255, 255, .1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, .2);
+    }
+
+    #previewToolbar .btn:hover {
+      background: rgba(255, 255, 255, .2);
+    }
+
+    #printArea {
+      padding: 26px 30px;
+      font-size: 12.5px;
+      color: #111;
+    }
+
+    /* ---------- Printable document base styles (shared by print + on-screen preview) ---------- */
+    .doc {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #111;
+    }
+
+    .doc table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .doc table td,
+    .doc table th {
+      border: 1px solid #333;
+      padding: 4px 6px;
+      font-size: 11.5px;
+    }
+
+    .doc .no-border td,
+    .doc .no-border th {
+      border: none;
+      padding: 2px 0;
+    }
+
+    .doc h1,
+    .doc h2,
+    .doc h3 {
+      margin: 0;
+    }
+
+    .doc .center {
+      text-align: center;
+    }
+
+    .doc .right {
+      text-align: right;
+    }
+
+    .doc .bold {
+      font-weight: 700;
+    }
+
+    .doc .letterhead {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .doc .letterhead .cname {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      color: #b03a2e;
+    }
+
+    .doc .letterhead .ctag {
+      font-size: 11px;
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .doc .letterhead .caddr {
+      font-size: 11px;
+      margin-top: 1px;
+    }
+
+    .doc .letterhead .ccontact {
+      font-size: 11px;
+      margin-top: 1px;
+    }
+
+    .doc hr {
+      border: none;
+      border-top: 2px solid #1c2b3a;
+      margin: 8px 0;
+    }
+
+    .doc .doctitle {
+      text-align: center;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin: 10px 0;
+      text-decoration: underline;
+    }
+
+    .doc .meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin: 3px 0;
+    }
+
+    .doc .section-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: #eee;
+      padding: 3px 6px;
+      margin-top: 10px;
+    }
+
+    .doc .sign-block {
+      margin-top: 36px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .doc .small {
+      font-size: 10.5px;
+      color: #333;
+    }
+
+    .doc .amt-words {
+      font-size: 12px;
+      margin: 8px 0;
+    }
+
+    .doc .totals-table td {
+      border: none;
+      padding: 2px 4px;
+      font-size: 12px;
+    }
+
+    .doc .room-title {
+      font-weight: 700;
+      font-size: 12px;
+      background: #f0f0f0;
+      padding: 3px 6px;
+      margin-top: 8px;
+      border: 1px solid #333;
+      border-bottom: none;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #printArea,
+      #printArea * {
+        visibility: visible;
+      }
+
+      #printArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      #previewOverlay,
+      #previewShell {
+        position: static;
+        background: none;
+        box-shadow: none;
+      }
+
+      #previewToolbar {
+        display: none;
+      }
+
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="appHeader">
+    <div class="brand" onclick="Nav.go('dashboard'); MobileNav.close();">
+      <div class="mark">RNS</div>
+      <div class="brand-text">
+        <span class="t1" id="headerBrandName">Site Office</span>
+        <span class="t2">Bill · Quotation · Measurement</span>
+      </div>
+    </div>
+    <nav>
+      <button data-nav="dashboard" class="active">Dashboard</button>
+      <button data-nav="bill">Bill</button>
+      <button data-nav="quotation">Quotation</button>
+      <button data-nav="random-quotation">Random Quotation</button>
+      <button data-nav="measurement">Measurement</button>
+      <button data-nav="drafts">Saved</button>
+      <button data-nav="settings">Settings</button>
+    </nav>
+    <button id="navToggle" onclick="MobileNav.toggle()" aria-label="Menu">&#9776;</button>
+  </div>
+  <div id="mobileNavDropdown">
+    <button data-nav="dashboard" class="active">Dashboard</button>
+    <button data-nav="bill">Bill</button>
+    <button data-nav="quotation">Quotation</button>
+    <button data-nav="random-quotation">Random Quotation</button>
+    <button data-nav="measurement">Measurement</button>
+    <button data-nav="drafts">Saved Documents</button>
+    <button data-nav="settings">Settings</button>
+  </div>
+
+  <div id="appMain">
+
+    <!-- ============ DASHBOARD ============ -->
+    <div class="view active" id="view-dashboard">
+      <div class="dash-hero">
+        <div>
+          <h1 class="dash-title">Site Office Dashboard</h1>
+          <p class="dash-sub">Quickly create, edit, print and manage your Tax Invoices, Quotations &amp; Measurement
+            Sheets.</p>
+        </div>
+        <div class="dash-badge">
+          <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#10b981;"></span>
+          100% Offline &amp; Private (Saved on this device)
+        </div>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-card" onclick="Nav.go('bill')">
+          <div class="icon">&#128179;</div>
+          <h3>Bill / Tax Invoice</h3>
+          <p>Create a GST or simple bill for a client, calculate tax and grand total automatically.</p>
+          <span class="go">Create a bill &rarr;</span>
+        </div>
+        <div class="dash-card" onclick="Nav.go('quotation')">
+          <div class="icon">&#128221;</div>
+          <h3>Quotation (Rise n Shine)</h3>
+          <p>Prepare a quotation with prefilled Rise n Shine letterhead and preset item rates.</p>
+          <span class="go">Create a quotation &rarr;</span>
+        </div>
+        <div class="dash-card" onclick="Nav.go('random-quotation')">
+          <div class="icon" style="background:linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);color:#7e22ce;">
+            &#9997;&#65039;</div>
+          <h3>Random Quotation</h3>
+          <p>Create a custom quotation for any vendor or firm with fully manual sender &amp; letterhead details.</p>
+          <span class="go" style="color:#7e22ce;">Create random quote &rarr;</span>
+        </div>
+        <div class="dash-card" onclick="Nav.go('measurement')">
+          <div class="icon">&#128207;</div>
+          <h3>Measurement Sheet</h3>
+          <p>Enter L × W × Nos. room-wise, auto-calculate Less Area and Grand Total for any work type.</p>
+          <span class="go">Create a measurement sheet &rarr;</span>
+        </div>
+      </div>
+      <div class="dash-secrow">
+        <div class="dash-mini" onclick="Nav.go('drafts')">
+          <div class="icon">&#128193;</div>
+          <div>
+            <h4>Saved Documents</h4>
+            <p id="draftCountText">View and reopen your drafts</p>
+          </div>
+        </div>
+        <div class="dash-mini" onclick="Nav.go('settings')">
+          <div class="icon">&#9881;&#65039;</div>
+          <div>
+            <h4>Company Profile &amp; Rate Master</h4>
+            <p>Set your letterhead, GSTIN, bank details and item rates</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ BILL VIEW ============ -->
+    <div class="view" id="view-bill"></div>
+
+    <!-- ============ QUOTATION VIEW ============ -->
+    <div class="view" id="view-quotation"></div>
+
+    <!-- ============ RANDOM QUOTATION VIEW ============ -->
+    <div class="view" id="view-random-quotation"></div>
+
+    <!-- ============ MEASUREMENT VIEW ============ -->
+    <div class="view" id="view-measurement"></div>
+
+    <!-- ============ DRAFTS VIEW ============ -->
+    <div class="view" id="view-drafts"></div>
+
+    <!-- ============ SETTINGS VIEW ============ -->
+    <div class="view" id="view-settings"></div>
+
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"></div>
+
+  <!-- Generic Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 id="modalTitle">Title</h3>
+        <button class="modal-close" onclick="Modal.close()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-foot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <!-- Preview / Print Overlay -->
+  <div id="previewOverlay">
+    <div id="previewShell">
+      <div id="previewToolbar">
+        <span class="ptitle" id="previewTitle">Preview</span>
+        <div class="pactions">
+          <button class="btn btn-sm" onclick="Preview.print()">&#128438; Print / Save as PDF</button>
+          <button class="btn btn-sm" onclick="Preview.close()">Close</button>
+        </div>
+      </div>
+      <div id="printArea"></div>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       CORE ENGINE: storage, calculations, number-to-words, nav, toast, modal
+       ===================================================================== */
+
+    const DB_KEYS = {
+      company: 'crm_company', rates: 'crm_rates', bills: 'crm_bills',
+      quotes: 'crm_quotes', measures: 'crm_measures', counters: 'crm_counters'
+    };
+
+    const Store = {
+      _cache: {},          // in-memory mirror, used as fallback if localStorage is blocked
+      persistent: null,    // true/false/null(unknown) - whether localStorage actually works here
+
+      testPersistence() {
+        try {
+          const testKey = '__rns_storage_test__';
+          localStorage.setItem(testKey, '1');
+          const ok = localStorage.getItem(testKey) === '1';
+          localStorage.removeItem(testKey);
+          Store.persistent = ok;
+        } catch (e) {
+          Store.persistent = false;
+        }
+        return Store.persistent;
+      },
+      get(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          if (raw !== null) {
+            const parsed = JSON.parse(raw);
+            Store._cache[key] = parsed;
+            return parsed;
+          }
+        } catch (e) { /* fall through to cache/fallback below */ }
+        if (Object.prototype.hasOwnProperty.call(Store._cache, key)) return Store._cache[key];
+        return fallback;
+      },
+      /* Returns true if the value was durably written to localStorage,
+         false if it only made it into the in-memory fallback (lost on reload). */
+      set(key, value) {
+        Store._cache[key] = value; // always keep current session consistent
+        try {
+          localStorage.setItem(key, JSON.stringify(value));
+          // verify the write actually landed (some browsers silently no-op under storage restrictions)
+          const readBack = localStorage.getItem(key);
+          const ok = readBack !== null && readBack === JSON.stringify(value);
+          Store.persistent = ok;
+          return ok;
+        } catch (e) {
+          Store.persistent = false;
+          return false;
+        }
+      },
+      uid() { return 'id_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8); }
+    };
+    Store.testPersistence();
+
+    /* ---------- Default company profile (from your existing letterhead; editable in Settings) ---------- */
+    const DEFAULT_COMPANY = {
+      name: 'RISE N SHINE',
+      tagline: 'Contractor For All Gypsum Work (POP) & Interior & Exterior Painting',
+      address: 'i 33/15, Jamia Nagar, Okhla, New Delhi-110025',
+      mobile: '9699991293',
+      email: 'risenshinedelhi@gmail.com',
+      gstin: '07AAXPO0369F1ZA',
+      state: 'Delhi',
+      stateCode: '07',
+      bankAccount: '347605500063',
+      bankName: 'ICICI Bank',
+      bankIFSC: 'ICIC0003476',
+      proprietorLabel: 'Proprietor'
+    };
+
+    const DEFAULT_RATES = [
+      { id: Store.uid(), description: 'Gypsum False Ceiling', unit: 'Sqft.', rate: 95 },
+      { id: Store.uid(), description: 'Hilex False Ceiling', unit: 'Sqft.', rate: 105 },
+      { id: Store.uid(), description: 'Armstrong False Ceiling', unit: 'Sqft.', rate: 110 },
+      { id: Store.uid(), description: 'False Ceiling Groove', unit: 'Sqft.', rate: 85 },
+      { id: Store.uid(), description: 'Ceiling Patra Finish with Chemical', unit: 'Sqft.', rate: 120 },
+      { id: Store.uid(), description: 'Ceiling Patra Finish', unit: 'Sqft.', rate: 150 },
+      { id: Store.uid(), description: 'Plain Gypsum Ceiling', unit: 'Nos.', rate: 100 },
+      { id: Store.uid(), description: 'Ceiling Repair Work', unit: 'Rft.', rate: 40 },
+      { id: Store.uid(), description: 'Gypsum Wall Punning', unit: 'Sqft.', rate: 26.6 },
+      { id: Store.uid(), description: 'Gypsum Wall Punning – Gyproc', unit: 'Sqft.', rate: 30 },
+      { id: Store.uid(), description: 'Gypsum Partition – Single Sheet', unit: 'Rft.', rate: 20 },
+      { id: Store.uid(), description: 'Gypsum Partition – Double Sheet', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'POP Wall Punning', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Wall Repair with Gypsum', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Wall Putty', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Patra Finish', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Crack Filling', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Surface Chipping and Re-Punning', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Sanding / Surface Smoothing', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Skirting Groove', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'GI Channel Framework', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Gypsum Partition – Both Side Single Sheet', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Gypsum Partition – Both Side Double Sheet', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Gypsum Partition – One Side Single Sheet', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Gypsum Partition – One Side Double Sheet', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Aluminium Partition with Hilex Board', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Glass & Gypsum Partition', unit: 'Sqft.', rate: 25 },
+      { id: Store.uid(), description: 'Interior Wall Painting', unit: 'Sqft.', rate: 35 }
+    ];
+
+    function getCompany() { return Store.get(DB_KEYS.company, DEFAULT_COMPANY); }
+    function getRates() { return Store.get(DB_KEYS.rates, DEFAULT_RATES); }
+    function getBills() { return Store.get(DB_KEYS.bills, []); }
+    function getQuotes() { return Store.get(DB_KEYS.quotes, []); }
+    function getMeasures() { return Store.get(DB_KEYS.measures, []); }
+    function getCounters() { return Store.get(DB_KEYS.counters, { bill: 1, quote: 1 }); }
+
+    /* ---------- Number formatting ---------- */
+    function round2(n) { return Math.round((parseFloat(n) || 0) * 100) / 100; }
+    function fmtNum(n) {
+      n = round2(n);
+      return n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+    function fmtInt(n) {
+      n = round2(n);
+      return n % 1 === 0 ? n.toLocaleString('en-IN') : fmtNum(n);
+    }
+
+    /* ---------- Amount in words (Indian numbering system) ---------- */
+    function numberToWordsIndian(num) {
+      num = Math.round(parseFloat(num) || 0);
+      if (num === 0) return 'Zero Rupees Only';
+      const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+        'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+      const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+      function twoDigit(n) {
+        if (n < 20) return ones[n];
+        return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');
+      }
+      function threeDigit(n) {
+        if (n < 100) return twoDigit(n);
+        return ones[Math.floor(n / 100)] + ' Hundred' + (n % 100 ? ' ' + twoDigit(n % 100) : '');
+      }
+      let crore = Math.floor(num / 10000000); num %= 10000000;
+      let lakh = Math.floor(num / 100000); num %= 100000;
+      let thousand = Math.floor(num / 1000); num %= 1000;
+      let hundred = num;
+      let parts = [];
+      if (crore) parts.push(threeDigit(crore) + ' Crore');
+      if (lakh) parts.push(threeDigit(lakh) + ' Lakh');
+      if (thousand) parts.push(threeDigit(thousand) + ' Thousand');
+      if (hundred) parts.push(threeDigit(hundred));
+      return parts.join(' ') + ' Rupees Only';
+    }
+
+    /* ---------- Toast ---------- */
+    const Toast = {
+      timer: null,
+      show(msg) {
+        const el = document.getElementById('toast');
+        el.textContent = msg;
+        el.classList.add('show');
+        clearTimeout(Toast.timer);
+        Toast.timer = setTimeout(() => el.classList.remove('show'), 2200);
+      }
+    };
+
+    /* ---------- Modal ---------- */
+    const Modal = {
+      open(title, bodyHtml, footHtml) {
+        document.getElementById('modalTitle').innerHTML = title;
+        document.getElementById('modalBody').innerHTML = bodyHtml;
+        document.getElementById('modalFoot').innerHTML = footHtml || '';
+        document.getElementById('modalOverlay').classList.add('show');
+      },
+      close() { document.getElementById('modalOverlay').classList.remove('show'); }
+    };
+    document.getElementById('modalOverlay').addEventListener('click', (e) => {
+      if (e.target.id === 'modalOverlay') Modal.close();
+    });
+
+    /* ---------- Confirm dialog helper ---------- */
+    function confirmAction(message, onYes) {
+      Modal.open('Please confirm', `<p style="font-size:13.5px;">${message}</p>`,
+        `<button class="btn" onclick="Modal.close()">Cancel</button>
+     <button class="btn btn-danger" onclick="Modal.close(); (${onYesRef(onYes)})()">Yes, continue</button>`);
+    }
+    let __confirmCallbacks = {};
+    let __confirmCounter = 0;
+    function onYesRef(fn) {
+      const key = '__cb' + (__confirmCounter++);
+      __confirmCallbacks[key] = fn;
+      window[key] = fn;
+      return key;
+    }
+
+    /* ---------- Navigation ---------- */
+    const Nav = {
+      current: 'dashboard',
+      go(view, params) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.getElementById('view-' + view).classList.add('active');
+        document.querySelectorAll('#appHeader nav button, #mobileNavDropdown button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll(`[data-nav="${view}"]`).forEach(b => b.classList.add('active'));
+        Nav.current = view;
+        window.scrollTo(0, 0);
+        MobileNav.close();
+        if (view === 'bill') BillModule.render(params);
+        if (view === 'quotation') QuotationModule.render(params);
+        if (view === 'random-quotation') RandomQuotationModule.render(params);
+        if (view === 'measurement') MeasurementModule.render(params);
+        if (view === 'drafts') DraftsModule.render();
+        if (view === 'settings') SettingsModule.render();
+        if (view === 'dashboard') DashboardModule.refresh();
+      }
+    };
+    document.querySelectorAll('#appHeader nav button, #mobileNavDropdown button').forEach(btn => {
+      btn.addEventListener('click', () => Nav.go(btn.dataset.nav));
+    });
+
+    /* ---------- Mobile hamburger nav ---------- */
+    const MobileNav = {
+      toggle() { document.getElementById('mobileNavDropdown').classList.toggle('show'); },
+      close() { document.getElementById('mobileNavDropdown').classList.remove('show'); }
+    };
+
+    const DashboardModule = {
+      refresh() {
+        const total = getBills().length + getQuotes().length + getMeasures().length;
+        document.getElementById('draftCountText').textContent =
+          total ? `${total} document${total > 1 ? 's' : ''} saved` : 'View and reopen your drafts';
+        const c = getCompany();
+        document.getElementById('headerBrandName').textContent = c.name || 'Site Office';
+      }
+    };
+
+    /* ---------- Preview / Print ---------- */
+    const Preview = {
+      show(title, html) {
+        document.getElementById('previewTitle').textContent = title;
+        document.getElementById('printArea').innerHTML = html;
+        document.getElementById('previewOverlay').classList.add('show');
+      },
+      close() { document.getElementById('previewOverlay').classList.remove('show'); },
+      print() { window.print(); }
+    };
+    document.getElementById('previewOverlay').addEventListener('click', (e) => {
+      if (e.target.id === 'previewOverlay') Preview.close();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      DashboardModule.refresh();
+    });
+
+    /* =====================================================================
+       BILL MODULE  (Tax Invoice — preserves RNS Bill Temp. structure)
+       ===================================================================== */
+    const BillModule = (function () {
+      let doc = null; // current working document
+
+      function blankBill() {
+        const co = getCompany();
+        const counters = getCounters();
+        return {
+          id: Store.uid(),
+          docType: 'bill',
+          gstEnabled: true,
+          invoiceNo: String(counters.bill || 1),
+          invoiceDate: todayISO(),
+          reverseCharge: 'No',
+          projectName: '',
+          flatNo: '',
+          client: { name: '', address: '', gstin: '', state: '', stateCode: '' },
+          consigneeSame: true,
+          consignee: { name: '', address: '', gstin: '', state: '', stateCode: '' },
+          items: [blankItem()],
+          taxType: 'cgst_sgst', // or 'igst'
+          gstPercent: 18,
+          note: '',
+          bankAccount: co.bankAccount, bankName: co.bankName, bankIFSC: co.bankIFSC,
+          status: 'draft',
+          createdAt: Date.now(), updatedAt: Date.now()
+        };
+      }
+      function blankItem() {
+        return { id: Store.uid(), description: '', hsn: '', qty: '', unit: 'Sqft.', rate: '', discount: 0 };
+      }
+      function todayISO() { return new Date().toISOString().slice(0, 10); }
+      function fmtDateDMY(iso) {
+        if (!iso) return '';
+        const [y, m, d] = iso.split('-');
+        return `${d}.${m}.${y}`;
+      }
+
+      function calcItem(it) {
+        const qty = parseFloat(it.qty) || 0, rate = parseFloat(it.rate) || 0, disc = parseFloat(it.discount) || 0;
+        const amount = qty * rate;
+        const taxable = amount - disc;
+        return { amount, taxable };
+      }
+      function calcTotals() {
+        let subtotal = 0, totalTaxable = 0, totalDiscount = 0;
+        doc.items.forEach(it => {
+          const c = calcItem(it);
+          subtotal += c.amount; totalDiscount += (parseFloat(it.discount) || 0); totalTaxable += c.taxable;
+        });
+        let gstAmount = 0;
+        if (doc.gstEnabled) { gstAmount = totalTaxable * (parseFloat(doc.gstPercent) || 0) / 100; }
+        const grandTotal = totalTaxable + gstAmount;
+        return { subtotal, totalDiscount, totalTaxable, gstAmount, grandTotal };
+      }
+
+      function render(params) {
+        if (params && params.load) {
+          doc = JSON.parse(JSON.stringify(params.load));
+        } else if (!doc || (params && params.fresh)) {
+          doc = blankBill();
+        }
+        const el = document.getElementById('view-bill');
+        el.innerHTML = `
+      <div class="toolbar">
+        <div class="title-block">
+          <h2>Bill / Tax Invoice</h2>
+          <span class="sub">${doc.status === 'draft' ? 'Draft — not yet saved' : 'Editing saved document'}</span>
+        </div>
+        <button class="btn" onclick="BillModule.newDoc()">+ New</button>
+        <button class="btn" onclick="BillModule.saveDraft()">&#128190; Save</button>
+        <button class="btn" onclick="Nav.go('drafts')">&#128193; Open Saved</button>
+        <button class="btn btn-amber" onclick="BillModule.preview()">&#128065; Preview</button>
+        <button class="btn btn-primary" onclick="BillModule.previewAndPrint()">&#128438; Print / PDF</button>
+      </div>
+
+      <div class="panel">
+        <h3>Invoice Details</h3>
+        <div class="grid grid-4">
+          <div class="field checkline" style="grid-column:1/-1;">
+            <input type="checkbox" id="b_gstEnabled" ${doc.gstEnabled ? 'checked' : ''} onchange="BillModule.field('gstEnabled', this.checked)">
+            <label for="b_gstEnabled">GST Invoice (uncheck for a simple non-GST bill)</label>
+          </div>
+          <div class="field"><label>Invoice No.</label><input value="${esc(doc.invoiceNo)}" oninput="BillModule.field('invoiceNo', this.value)"></div>
+          <div class="field"><label>Invoice Date</label><input type="date" value="${doc.invoiceDate}" onchange="BillModule.field('invoiceDate', this.value)"></div>
+          <div class="field"><label>Reverse Charge</label>
+            <select onchange="BillModule.field('reverseCharge', this.value)">
+              <option ${doc.reverseCharge === 'No' ? 'selected' : ''}>No</option>
+              <option ${doc.reverseCharge === 'Yes' ? 'selected' : ''}>Yes</option>
+            </select>
+          </div>
+          <div class="field"><label>Project / Site Name</label><input value="${esc(doc.projectName)}" oninput="BillModule.field('projectName', this.value)"></div>
+          <div class="field"><label>Flat / Unit No.</label><input value="${esc(doc.flatNo)}" oninput="BillModule.field('flatNo', this.value)"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Details of Receiver / Billed To</h3>
+        <div class="grid grid-2">
+          <div class="field"><label>Client Name</label><input value="${esc(doc.client.name)}" oninput="BillModule.clientField('name', this.value)"></div>
+          <div class="field"><label>GSTIN</label><input value="${esc(doc.client.gstin)}" oninput="BillModule.clientField('gstin', this.value)"></div>
+          <div class="field" style="grid-column:1/-1;"><label>Address</label><textarea oninput="BillModule.clientField('address', this.value)">${esc(doc.client.address)}</textarea></div>
+          <div class="field"><label>State</label><input value="${esc(doc.client.state)}" oninput="BillModule.clientField('state', this.value)"></div>
+          <div class="field"><label>State Code</label><input value="${esc(doc.client.stateCode)}" oninput="BillModule.clientField('stateCode', this.value)"></div>
+        </div>
+        <div class="field checkline" style="margin-top:10px;">
+          <input type="checkbox" id="b_consigneeSame" ${doc.consigneeSame ? 'checked' : ''} onchange="BillModule.field('consigneeSame', this.checked)">
+          <label for="b_consigneeSame">Consignee (Shipped To) same as above</label>
+        </div>
+        ${doc.consigneeSame ? '' : `
+        <div class="grid grid-2" style="margin-top:10px;">
+          <div class="field"><label>Consignee Name</label><input value="${esc(doc.consignee.name)}" oninput="BillModule.consigneeField('name', this.value)"></div>
+          <div class="field"><label>Consignee GSTIN</label><input value="${esc(doc.consignee.gstin)}" oninput="BillModule.consigneeField('gstin', this.value)"></div>
+          <div class="field" style="grid-column:1/-1;"><label>Consignee Address</label><textarea oninput="BillModule.consigneeField('address', this.value)">${esc(doc.consignee.address)}</textarea></div>
+          <div class="field"><label>Consignee State</label><input value="${esc(doc.consignee.state)}" oninput="BillModule.consigneeField('state', this.value)"></div>
+        </div>`}
+      </div>
+
+      <div class="panel">
+        <h3>Work Items</h3>
+        <div class="items-wrap">
+          <table class="items" id="billItemsTable">
+            <thead><tr>
+              <th style="width:28px;">Sr</th><th>Name of Product / Service</th><th style="width:80px;">HSN/SAC</th>
+              <th style="width:70px;">Qty</th><th style="width:75px;">UOM</th><th style="width:80px;">Rate</th>
+              <th style="width:90px;">Discount</th><th style="width:100px;">Taxable Value</th><th style="width:34px;"></th>
+            </tr></thead>
+            <tbody>${renderItemRows()}</tbody>
+          </table>
+        </div>
+        <button class="btn btn-sm add-row-btn" onclick="BillModule.addItem()">+ Add Item</button>
+        ${renderRateMasterPicker('BillModule.addItemFromRate')}
+      </div>
+
+      <div class="panel">
+        <h3>Tax &amp; Totals</h3>
+        <div class="grid grid-3">
+          <div class="field"><label>Tax Type</label>
+            <select onchange="BillModule.field('taxType', this.value)" ${!doc.gstEnabled ? 'disabled' : ''}>
+              <option value="cgst_sgst" ${doc.taxType === 'cgst_sgst' ? 'selected' : ''}>CGST + SGST (within state)</option>
+              <option value="igst" ${doc.taxType === 'igst' ? 'selected' : ''}>IGST (other state)</option>
+            </select>
+          </div>
+          <div class="field"><label>GST %</label><input type="number" step="0.01" value="${doc.gstPercent}" oninput="BillModule.field('gstPercent', this.value)" ${!doc.gstEnabled ? 'disabled' : ''}></div>
+        </div>
+        <div class="summary-box" style="margin-top:14px;" id="billSummary"></div>
+      </div>
+
+      <div class="panel">
+        <h3>Bank Details &amp; Notes</h3>
+        <div class="grid grid-3">
+          <div class="field"><label>Bank Account No.</label><input value="${esc(doc.bankAccount)}" oninput="BillModule.field('bankAccount', this.value)"></div>
+          <div class="field"><label>Bank Name</label><input value="${esc(doc.bankName)}" oninput="BillModule.field('bankName', this.value)"></div>
+          <div class="field"><label>IFSC</label><input value="${esc(doc.bankIFSC)}" oninput="BillModule.field('bankIFSC', this.value)"></div>
+        </div>
+        <div class="field" style="margin-top:10px;"><label>Note</label><textarea oninput="BillModule.field('note', this.value)">${esc(doc.note)}</textarea></div>
+      </div>
+    `;
+        updateSummary();
+      }
+
+      function renderItemRows() {
+        return doc.items.map((it, idx) => {
+          const c = calcItem(it);
+          return `<tr>
+        <td>${idx + 1}</td>
+        <td><input value="${esc(it.description)}" placeholder="Work description" oninput="BillModule.itemField('${it.id}','description',this.value)"></td>
+        <td><input value="${esc(it.hsn)}" oninput="BillModule.itemField('${it.id}','hsn',this.value)"></td>
+        <td><input type="number" step="0.01" value="${it.qty}" oninput="BillModule.itemField('${it.id}','qty',this.value)"></td>
+        <td><input value="${esc(it.unit)}" oninput="BillModule.itemField('${it.id}','unit',this.value)"></td>
+        <td><input type="number" step="0.01" value="${it.rate}" oninput="BillModule.itemField('${it.id}','rate',this.value)"></td>
+        <td><input type="number" step="0.01" value="${it.discount}" oninput="BillModule.itemField('${it.id}','discount',this.value)"></td>
+        <td class="amt-cell">${fmtNum(c.taxable)}</td>
+        <td><button class="row-del" title="Delete row" onclick="BillModule.deleteItem('${it.id}')">&times;</button></td>
+      </tr>`;
+        }).join('');
+      }
+
+      function renderRateMasterPicker(callback) {
+        const rates = getRates();
+        if (!rates.length) return '';
+        return `<div style="margin-top:10px;">
+      <select style="max-width:340px;" onchange="if(this.value){${callback}(this.value); this.value='';}">
+        <option value="">+ Insert from Rate Master...</option>
+        ${rates.map(r => `<option value="${r.id}">${esc(r.description)} (${esc(r.unit)} @ ${r.rate})</option>`).join('')}
+      </select>
+    </div>`;
+      }
+
+      function updateSummary() {
+        const t = calcTotals();
+        document.querySelectorAll('#billItemsTable tbody tr').forEach((row, idx) => {
+          const it = doc.items[idx];
+          const c = calcItem(it);
+          row.children[7].textContent = fmtNum(c.taxable);
+        });
+        const box = document.getElementById('billSummary');
+        if (!box) return;
+        let rows = `
+      <div class="summary-row"><span>Total (before discount)</span><span>₹ ${fmtNum(t.subtotal)}</span></div>
+      <div class="summary-row"><span>Less: Discount</span><span>₹ ${fmtNum(t.totalDiscount)}</span></div>
+      <div class="summary-row"><span>Taxable Value</span><span>₹ ${fmtNum(t.totalTaxable)}</span></div>`;
+        if (doc.gstEnabled) {
+          if (doc.taxType === 'igst') {
+            rows += `<div class="summary-row"><span>IGST (${doc.gstPercent}%)</span><span>₹ ${fmtNum(t.gstAmount)}</span></div>`;
+          } else {
+            rows += `<div class="summary-row"><span>CGST (${round2(doc.gstPercent / 2)}%)</span><span>₹ ${fmtNum(t.gstAmount / 2)}</span></div>
+                  <div class="summary-row"><span>SGST (${round2(doc.gstPercent / 2)}%)</span><span>₹ ${fmtNum(t.gstAmount / 2)}</span></div>`;
+          }
+        }
+        rows += `<div class="summary-row grand"><span>Grand Total</span><span>₹ ${fmtNum(t.grandTotal)}</span></div>`;
+        box.innerHTML = rows + `<div class="words-box">${numberToWordsIndian(t.grandTotal)}</div>`;
+      }
+
+      function esc(s) { return (s === undefined || s === null) ? '' : String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+      return {
+        render,
+        field(key, val) { doc[key] = val; if (key === 'gstEnabled' || key === 'consigneeSame' || key === 'taxType') render({ load: doc }); else updateSummary(); },
+        clientField(key, val) { doc.client[key] = val; },
+        consigneeField(key, val) { doc.consignee[key] = val; },
+        itemField(id, key, val) {
+          const it = doc.items.find(i => i.id === id);
+          if (it) { it[key] = val; updateSummary(); }
+        },
+        addItem() { doc.items.push(blankItem()); render({ load: doc }); },
+        addItemFromRate(rateId) {
+          const r = getRates().find(x => x.id === rateId);
+          if (!r) return;
+          doc.items.push({ id: Store.uid(), description: r.description, hsn: '', qty: '', unit: r.unit, rate: r.rate, discount: 0 });
+          render({ load: doc });
+        },
+        deleteItem(id) {
+          if (doc.items.length <= 1) { Toast.show('At least one item row is required'); return; }
+          doc.items = doc.items.filter(i => i.id !== id);
+          render({ load: doc });
+        },
+        newDoc() {
+          confirmAction('Start a new blank bill? Unsaved changes on the current one will be lost.', () => {
+            doc = null; render({ fresh: true }); Toast.show('New bill started');
+          });
+        },
+        saveDraft() {
+          let bills = getBills();
+          doc.updatedAt = Date.now(); doc.status = 'saved';
+          const idx = bills.findIndex(b => b.id === doc.id);
+          if (idx >= 0) bills[idx] = doc; else bills.push(doc);
+          Store.set(DB_KEYS.bills, bills);
+          const counters = getCounters();
+          const n = parseInt(doc.invoiceNo) || 0;
+          if (n >= counters.bill) counters.bill = n + 1;
+          Store.set(DB_KEYS.counters, counters);
+          Toast.show('Bill saved');
+          render({ load: doc });
+        },
+        load(id) {
+          const b = getBills().find(x => x.id === id);
+          if (b) { Nav.go('bill', { load: b }); }
+        },
+        duplicate(id) {
+          const b = getBills().find(x => x.id === id);
+          if (!b) return;
+          const copy = JSON.parse(JSON.stringify(b));
+          copy.id = Store.uid(); copy.status = 'draft';
+          const counters = getCounters();
+          copy.invoiceNo = String(counters.bill || 1);
+          Nav.go('bill', { load: copy });
+        },
+        buildDocHtml() {
+          const co = getCompany();
+          const t = calcTotals();
+          const cons = doc.consigneeSame ? doc.client : doc.consignee;
+          let itemsHtml = doc.items.map((it, idx) => {
+            const c = calcItem(it);
+            const gstPerItem = doc.gstEnabled ? (c.taxable * (parseFloat(doc.gstPercent) || 0) / 100) : 0;
+            return `<tr>
+          <td class="center">${idx + 1}</td>
+          <td>${esc(it.description)}</td>
+          <td class="center">${esc(it.hsn)}</td>
+          <td class="right">${it.qty ? fmtInt(it.qty) : ''}</td>
+          <td class="center">${esc(it.unit)}</td>
+          <td class="right">${it.rate ? fmtNum(it.rate) : ''}</td>
+          <td class="right">${esc(it.amount || '')}</td>
+          <td class="right">${it.discount ? fmtNum(it.discount) : '0.00'}</td>
+          <td class="right">${fmtNum(c.taxable)}</td>
+          ${doc.gstEnabled ? `<td class="right">${doc.gstPercent}%</td><td class="right">${fmtNum(gstPerItem)}</td>` : ''}
+        </tr>`;
+          }).join('');
+
+          const amountCol = doc.items.map(it => fmtNum((parseFloat(it.qty) || 0) * (parseFloat(it.rate) || 0)));
+
+          let itemsHtml2 = doc.items.map((it, idx) => {
+            const c = calcItem(it);
+            const amount = (parseFloat(it.qty) || 0) * (parseFloat(it.rate) || 0);
+            const gstPerItem = doc.gstEnabled ? (c.taxable * (parseFloat(doc.gstPercent) || 0) / 100) : 0;
+            return `<tr>
+          <td class="center">${idx + 1}</td>
+          <td>${esc(it.description)}</td>
+          <td class="center">${esc(it.hsn)}</td>
+          <td class="right">${it.qty ? fmtInt(it.qty) : ''}</td>
+          <td class="center">${esc(it.unit)}</td>
+          <td class="right">${it.rate ? fmtNum(it.rate) : ''}</td>
+          <td class="right">${fmtNum(amount)}</td>
+          <td class="right">${fmtNum(it.discount)}</td>
+          <td class="right">${fmtNum(c.taxable)}</td>
+          ${doc.gstEnabled ? `<td class="right">${doc.gstPercent}%<br>${fmtNum(gstPerItem)}</td>` : ''}
+          <td class="right bold">${fmtNum(c.taxable + gstPerItem)}</td>
+        </tr>`;
+          }).join('');
+
+          return `<div class="doc">
+        <div class="letterhead">
+          <div class="cname">${esc(co.name)}</div>
+          <div class="ctag">${esc(co.tagline)}</div>
+          <div class="caddr">${esc(co.address)}</div>
+          <div class="ccontact">Mob: ${esc(co.mobile)} &nbsp;|&nbsp; Email: ${esc(co.email)} ${co.gstin ? `&nbsp;|&nbsp; GSTIN: ${esc(co.gstin)}` : ''}</div>
+        </div>
+        <hr>
+        <div class="doctitle">${doc.gstEnabled ? 'TAX INVOICE' : 'BILL'}</div>
+        <table class="no-border">
+          <tr>
+            <td style="width:50%;">
+              ${doc.gstEnabled ? `Reverse Charge : ${esc(doc.reverseCharge)}<br>` : ''}
+              Invoice No : ${esc(doc.invoiceNo)}<br>
+              Invoice Date : ${fmtDateDMY(doc.invoiceDate)}<br>
+              ${doc.projectName ? `Project / Site : ${esc(doc.projectName)}<br>` : ''}
+              ${doc.flatNo ? `Flat / Unit No : ${esc(doc.flatNo)}<br>` : ''}
+            </td>
+            <td style="width:50%;vertical-align:top;">
+              ${doc.gstEnabled ? `State : ${esc(co.state)} &nbsp; State Code : ${esc(co.stateCode)}` : ''}
+            </td>
+          </tr>
+        </table>
+        <div class="section-title">Details of Receiver / Billed To</div>
+        <table class="no-border">
+          <tr><td>
+            Name : ${esc(doc.client.name)}<br>
+            Address : ${esc(doc.client.address).replace(/\n/g, '<br>')}<br>
+            ${doc.gstEnabled ? `GSTIN : ${esc(doc.client.gstin)}<br>` : ''}
+            State : ${esc(doc.client.state)} ${doc.client.stateCode ? `&nbsp; State Code : ${esc(doc.client.stateCode)}` : ''}
+          </td>
+          ${!doc.consigneeSame ? `<td style="vertical-align:top;">
+            <b>Consignee / Shipped To</b><br>
+            Name : ${esc(cons.name)}<br>
+            Address : ${esc(cons.address).replace(/\n/g, '<br>')}<br>
+            ${doc.gstEnabled ? `GSTIN : ${esc(cons.gstin)}<br>` : ''}
+            State : ${esc(cons.state)}
+          </td>` : ''}
+          </tr>
+        </table>
+
+        <table style="margin-top:8px;">
+          <thead>
+            <tr>
+              <th>Sr</th><th>Name of Product / Service</th><th>HSN/SAC</th><th>Qty</th><th>UOM</th>
+              <th>Rate</th><th>Amount</th><th>Discount</th><th>Taxable Value</th>
+              ${doc.gstEnabled ? '<th>GST</th>' : ''}
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>${itemsHtml2}</tbody>
+        </table>
+
+        <table class="totals-table" style="width:300px;margin-left:auto;margin-top:6px;">
+          <tr><td>Total Amount Before Tax</td><td class="right">${fmtNum(t.totalTaxable)}</td></tr>
+          ${doc.gstEnabled ? (doc.taxType === 'igst' ?
+              `<tr><td>Add: IGST</td><td class="right">${fmtNum(t.gstAmount)}</td></tr>`
+              : `<tr><td>Add: CGST</td><td class="right">${fmtNum(t.gstAmount / 2)}</td></tr>
+               <tr><td>Add: SGST</td><td class="right">${fmtNum(t.gstAmount / 2)}</td></tr>`) : ''}
+          <tr><td class="bold">GRAND TOTAL</td><td class="right bold">₹ ${fmtNum(t.grandTotal)}</td></tr>
+        </table>
+
+        <div class="amt-words"><b>Total Invoice Amount in Words :</b><br>Rupees ${numberToWordsIndian(t.grandTotal)}</div>
+
+        ${(doc.bankAccount || doc.bankName) ? `<div class="section-title">Bank Details</div>
+        <table class="no-border">
+          <tr><td>Bank Account Number : ${esc(doc.bankAccount)}</td></tr>
+          <tr><td>Bank Name : ${esc(doc.bankName)}</td></tr>
+          <tr><td>Bank Branch IFSC : ${esc(doc.bankIFSC)}</td></tr>
+        </table>`: ''}
+
+        ${doc.note ? `<div class="small" style="margin-top:6px;"><b>Note :</b> ${esc(doc.note)}</div>` : ''}
+        ${doc.gstEnabled ? `<div class="small" style="margin-top:4px;">GST Payable on Reverse Charge : ${esc(doc.reverseCharge)}</div>` : ''}
+        <div class="small" style="margin-top:2px;">Certified that the particulars given above are true and correct.</div>
+
+        <div class="sign-block">
+          <div></div>
+          <div class="center">For, ${esc(co.name)}<br><br><br>Authorised Signatory (${esc(co.proprietorLabel)})</div>
+        </div>
+        <div class="small right" style="margin-top:10px;">[E&amp;OE]</div>
+      </div>`;
+        },
+        preview() {
+          Preview.show(`Bill ${doc.invoiceNo}`, this.buildDocHtml());
+        },
+        previewAndPrint() {
+          this.preview();
+          setTimeout(() => Preview.print(), 250);
+        }
+      };
+    })();
+
+    /* =====================================================================
+       QUOTATION MODULE  (Simple style + Shipper/Receiver GST style)
+       ===================================================================== */
+    const QuotationModule = (function () {
+      let doc = null;
+
+      function blankQuote() {
+        const counters = getCounters();
+        return {
+          id: Store.uid(),
+          docType: 'quote',
+          style: 'simple', // 'simple' | 'gst'
+          tableFormat: 'with_qty', // 'with_qty' | 'without_qty'
+          showTotalAmount: true, // when true, total amount summary / grand total is displayed
+          quoteNo: String(counters.quote || 1),
+          quoteDate: new Date().toISOString().slice(0, 10),
+          clientName: '', clientAddress: '', clientEmail: '', clientGstin: '',
+          subject: '',
+          note: 'GST Extra Applicable',
+          items: [blankItem()],
+          gstExtra: true,
+          terms: '',
+          status: 'draft',
+          createdAt: Date.now(), updatedAt: Date.now()
+        };
+      }
+      function blankItem() {
+        return { id: Store.uid(), description: '', qty: '', unit: 'Sqft.', rate: '', lumsum: false, lumsumAmount: '' };
+      }
+      function fmtDateDMY(iso) { if (!iso) return ''; const [y, m, d] = iso.split('-'); return `${d}/${m}/${y}`; }
+      function esc(s) { return (s === undefined || s === null) ? '' : String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+      function itemAmount(it) {
+        if (it.lumsum) return parseFloat(it.lumsumAmount) || 0;
+        return (parseFloat(it.qty) || 0) * (parseFloat(it.rate) || 0);
+      }
+      function total() { return doc.items.reduce((s, it) => s + itemAmount(it), 0); }
+      function isWithQty() { return doc.tableFormat !== 'without_qty'; } // default true for old saved quotes
+
+      function render(params) {
+        if (params && params.load) { doc = JSON.parse(JSON.stringify(params.load)); }
+        else if (!doc || (params && params.fresh)) { doc = blankQuote(); }
+        const el = document.getElementById('view-quotation');
+        el.innerHTML = `
+      <div class="toolbar">
+        <div class="title-block">
+          <h2>Quotation</h2>
+          <span class="sub">${doc.status === 'draft' ? 'Draft — not yet saved' : 'Editing saved document'}</span>
+        </div>
+        <button class="btn" onclick="QuotationModule.newDoc()">+ New</button>
+        <button class="btn" onclick="QuotationModule.saveDraft()">&#128190; Save</button>
+        <button class="btn" onclick="Nav.go('drafts')">&#128193; Open Saved</button>
+        <button class="btn btn-amber" onclick="QuotationModule.preview()">&#128065; Preview</button>
+        <button class="btn btn-primary" onclick="QuotationModule.previewAndPrint()">&#128438; Print / PDF</button>
+      </div>
+
+      <div class="panel">
+        <h3>Quotation Details</h3>
+        <div class="field" style="margin-bottom:14px;">
+          <label>Item Table Format</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn ${isWithQty() ? 'btn-primary' : ''}" onclick="QuotationModule.field('tableFormat','with_qty')">With Quantity</button>
+            <button type="button" class="btn ${!isWithQty() ? 'btn-primary' : ''}" onclick="QuotationModule.field('tableFormat','without_qty')">Without Quantity</button>
+          </div>
+          <span class="hint">${isWithQty() ? 'Table: Sr. No. | Description of Work | Qty. | Unit | Rate | Amount' : 'Table: Sr. No. | Description of Work | Unit | Rate (no Qty., no Amount)'}</span>
+        </div>
+        <div class="grid grid-3">
+          <div class="field"><label>Format Style</label>
+            <select onchange="QuotationModule.field('style', this.value)">
+              <option value="simple" ${doc.style === 'simple' ? 'selected' : ''}>Simple (To, ... format)</option>
+              <option value="gst" ${doc.style === 'gst' ? 'selected' : ''}>Shipper / Receiver (GST format)</option>
+            </select>
+          </div>
+          <div class="field"><label>Quotation No.</label><input value="${esc(doc.quoteNo)}" oninput="QuotationModule.field('quoteNo', this.value)"></div>
+          <div class="field"><label>Date</label><input type="date" value="${doc.quoteDate}" onchange="QuotationModule.field('quoteDate', this.value)"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>${doc.style === 'gst' ? 'Receiver Details' : 'Client Details'}</h3>
+        <div class="grid grid-2">
+          <div class="field"><label>${doc.style === 'gst' ? 'Company / Client Name' : 'Client Name'}</label><input value="${esc(doc.clientName)}" oninput="QuotationModule.field('clientName', this.value)"></div>
+          ${doc.style === 'gst' ? `<div class="field"><label>GSTIN</label><input value="${esc(doc.clientGstin)}" oninput="QuotationModule.field('clientGstin', this.value)"></div>` : ''}
+          <div class="field" style="grid-column:1/-1;"><label>Address</label><textarea oninput="QuotationModule.field('clientAddress', this.value)">${esc(doc.clientAddress)}</textarea></div>
+          ${doc.style === 'gst' ? `<div class="field"><label>Email</label><input value="${esc(doc.clientEmail)}" oninput="QuotationModule.field('clientEmail', this.value)"></div>` : ''}
+        </div>
+        <div class="field" style="margin-top:10px;"><label>Subject</label><input value="${esc(doc.subject)}" placeholder="e.g. Quotation for Gypsum Partition & Armstrong Ceiling Work" oninput="QuotationModule.field('subject', this.value)"></div>
+        ${doc.style === 'gst' ? `<div class="field" style="margin-top:10px;"><label>Note / Remark</label><input value="${esc(doc.note)}" oninput="QuotationModule.field('note', this.value)"></div>` : ''}
+      </div>
+
+      <div class="panel">
+        <h3>Work Items</h3>
+        <div class="items-wrap">
+          <table class="items" id="quoteItemsTable">
+            <thead><tr>
+              ${isWithQty() ? `
+              <th style="width:28px;">Sr</th><th>Description of Work</th><th style="width:64px;">Lumsum</th>
+              <th style="width:75px;">Qty.</th><th style="width:75px;">Unit</th><th style="width:80px;">Rate</th>
+              <th style="width:100px;">Amount</th><th style="width:34px;"></th>
+              ` : `
+              <th style="width:28px;">Sr</th><th>Description of Work</th><th style="width:110px;">Unit</th><th style="width:100px;">Rate</th><th style="width:34px;"></th>
+              `}
+            </tr></thead>
+            <tbody>${renderItemRows()}</tbody>
+          </table>
+        </div>
+        <button class="btn btn-sm add-row-btn" onclick="QuotationModule.addItem()">+ Add Item</button>
+        ${renderRateMasterPicker()}
+      </div>
+
+      <div class="panel">
+        <h3>Totals &amp; Terms</h3>
+        ${isWithQty() ? `
+        <div class="field checkline" style="margin-bottom:10px;background:#f8fafc;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius-sm);">
+          <input type="checkbox" id="q_showTotalAmount" ${doc.showTotalAmount !== false ? 'checked' : ''} onchange="QuotationModule.field('showTotalAmount', this.checked)">
+          <label for="q_showTotalAmount" style="font-weight:600;color:var(--navy);cursor:pointer;">
+            Display Total / Grand Total Amount
+          </label>
+        </div>` : ''}
+        <div class="field checkline">
+          <input type="checkbox" id="q_gstExtra" ${doc.gstExtra ? 'checked' : ''} onchange="QuotationModule.field('gstExtra', this.checked)">
+          <label for="q_gstExtra">Show "GST Extra Applicable" note</label>
+        </div>
+        <div class="field" style="margin-top:10px;"><label>Terms &amp; Conditions / Notes</label><textarea oninput="QuotationModule.field('terms', this.value)">${esc(doc.terms)}</textarea></div>
+        ${isWithQty() ? `<div class="summary-box" style="margin-top:14px;" id="quoteSummary"></div>`
+            : `<div class="hint" style="margin-top:10px;">Without Quantity format shows rates only — no item Amount or Total is calculated, since quantity isn't entered here.</div>`}
+      </div>
+    `;
+        updateSummary();
+      }
+
+      function renderItemRows() {
+        if (!isWithQty()) {
+          // WITHOUT QUANTITY: Sr. No. | Description of Work | Unit | Rate
+          return doc.items.map((it, idx) => `<tr>
+        <td>${idx + 1}</td>
+        <td><input value="${esc(it.description)}" placeholder="Description of work" oninput="QuotationModule.itemField('${it.id}','description',this.value)"></td>
+        <td><input value="${esc(it.unit)}" oninput="QuotationModule.itemField('${it.id}','unit',this.value)"></td>
+        <td><input type="number" step="0.01" value="${it.rate}" oninput="QuotationModule.itemField('${it.id}','rate',this.value)"></td>
+        <td><button class="row-del" title="Delete row" onclick="QuotationModule.deleteItem('${it.id}')">&times;</button></td>
+      </tr>`).join('');
+        }
+        // WITH QUANTITY: Sr. No. | Description of Work | Qty. | Unit | Rate | Amount (+ Lumsum toggle)
+        return doc.items.map((it, idx) => {
+          const amt = itemAmount(it);
+          return `<tr>
+        <td>${idx + 1}</td>
+        <td><input value="${esc(it.description)}" placeholder="Description of work" oninput="QuotationModule.itemField('${it.id}','description',this.value)"></td>
+        <td style="text-align:center;"><input type="checkbox" ${it.lumsum ? 'checked' : ''} onchange="QuotationModule.itemField('${it.id}','lumsum',this.checked)"></td>
+        <td>${it.lumsum ? '' : `<input type="number" step="0.01" value="${it.qty}" oninput="QuotationModule.itemField('${it.id}','qty',this.value)">`}</td>
+        <td><input value="${esc(it.unit)}" oninput="QuotationModule.itemField('${it.id}','unit',this.value)"></td>
+        <td>${it.lumsum ? '' : `<input type="number" step="0.01" value="${it.rate}" oninput="QuotationModule.itemField('${it.id}','rate',this.value)">`}</td>
+        <td>${it.lumsum
+              ? `<input type="number" step="0.01" value="${it.lumsumAmount}" placeholder="Lumsum amt" oninput="QuotationModule.itemField('${it.id}','lumsumAmount',this.value)">`
+              : `<span class="amt-cell">${fmtNum(amt)}</span>`}</td>
+        <td><button class="row-del" title="Delete row" onclick="QuotationModule.deleteItem('${it.id}')">&times;</button></td>
+      </tr>`;
+        }).join('');
+      }
+
+      function renderRateMasterPicker() {
+        const rates = getRates();
+        if (!rates.length) return '';
+        return `<div style="margin-top:10px;">
+      <select style="max-width:340px;" onchange="if(this.value){QuotationModule.addItemFromRate(this.value); this.value='';}">
+        <option value="">+ Insert from Rate Master...</option>
+        ${rates.map(r => `<option value="${r.id}">${esc(r.description)} (${esc(r.unit)} @ ${r.rate})</option>`).join('')}
+      </select>
+    </div>`;
+      }
+
+      function updateRowAmounts() {
+        if (!isWithQty()) return; // no Amount column in Without Quantity format
+        document.querySelectorAll('#quoteItemsTable tbody tr').forEach((row, idx) => {
+          const it = doc.items[idx];
+          if (!it || it.lumsum) return;
+          const cell = row.children[6];
+          const amtSpan = cell.querySelector('.amt-cell');
+          if (amtSpan) amtSpan.textContent = fmtNum(itemAmount(it));
+        });
+      }
+
+      function updateSummary() {
+        const box = document.getElementById('quoteSummary');
+        if (!box) return;
+        if (doc.showTotalAmount === false) {
+          box.innerHTML = `
+        <div style="background:#f8fafc;border:1px dashed var(--line-strong);border-radius:var(--radius-sm);padding:12px;text-align:center;color:var(--slate);font-size:12.5px;">
+          <em>Grand Total Amount is hidden (checkbox unticked). Ticking will show total amount and words.</em>
+        </div>
+      `;
+          return;
+        }
+        const t = total();
+        box.innerHTML = `
+      <div class="summary-row grand"><span>Total Amount</span><span>₹ ${fmtNum(t)}</span></div>
+      ${doc.gstExtra ? `<div class="hint" style="margin-top:4px;">GST Extra Applicable</div>` : ''}
+      <div class="words-box">${numberToWordsIndian(t)}</div>
+    `;
+      }
+
+      return {
+        render,
+        field(key, val) {
+          doc[key] = val;
+          if (key === 'style' || key === 'gstExtra' || key === 'tableFormat' || key === 'showTotalAmount') render({ load: doc });
+          else updateSummary();
+        },
+        itemField(id, key, val) {
+          const it = doc.items.find(i => i.id === id);
+          if (it) { it[key] = val; if (key === 'lumsum') render({ load: doc }); else { updateRowAmounts(); updateSummary(); } }
+        },
+        addItem() { doc.items.push(blankItem()); render({ load: doc }); },
+        addItemFromRate(rateId) {
+          const r = getRates().find(x => x.id === rateId);
+          if (!r) return;
+          doc.items.push({ id: Store.uid(), description: r.description, qty: '', unit: r.unit, rate: r.rate, lumsum: false, lumsumAmount: '' });
+          render({ load: doc });
+        },
+        deleteItem(id) {
+          if (doc.items.length <= 1) { Toast.show('At least one item row is required'); return; }
+          doc.items = doc.items.filter(i => i.id !== id);
+          render({ load: doc });
+        },
+        newDoc() {
+          confirmAction('Start a new blank quotation? Unsaved changes on the current one will be lost.', () => {
+            doc = null; render({ fresh: true }); Toast.show('New quotation started');
+          });
+        },
+        saveDraft() {
+          let quotes = getQuotes();
+          doc.updatedAt = Date.now(); doc.status = 'saved';
+          const idx = quotes.findIndex(q => q.id === doc.id);
+          if (idx >= 0) quotes[idx] = doc; else quotes.push(doc);
+          Store.set(DB_KEYS.quotes, quotes);
+          const counters = getCounters();
+          const n = parseInt(doc.quoteNo) || 0;
+          if (n >= counters.quote) counters.quote = n + 1;
+          Store.set(DB_KEYS.counters, counters);
+          Toast.show('Quotation saved');
+          render({ load: doc });
+        },
+        load(id) {
+          const q = getQuotes().find(x => x.id === id);
+          if (q) Nav.go('quotation', { load: q });
+        },
+        duplicate(id) {
+          const q = getQuotes().find(x => x.id === id);
+          if (!q) return;
+          const copy = JSON.parse(JSON.stringify(q));
+          copy.id = Store.uid(); copy.status = 'draft';
+          const counters = getCounters();
+          copy.quoteNo = String(counters.quote || 1);
+          Nav.go('quotation', { load: copy });
+        },
+        buildDocHtml() {
+          const co = getCompany();
+          const t = total();
+          const withQty = isWithQty();
+          const showTotal = (doc.showTotalAmount !== false);
+
+          const rowsHtml = withQty ? doc.items.map((it, idx) => {
+            const amt = itemAmount(it);
+            return `<tr>
+          <td class="center">${idx + 1}</td>
+          <td>${esc(it.description)}</td>
+          <td class="right">${it.lumsum ? '' : (it.qty ? fmtInt(it.qty) : '')}</td>
+          <td class="center">${esc(it.unit)}</td>
+          <td class="right">${it.lumsum ? '' : (it.rate ? fmtNum(it.rate) : '')}</td>
+          <td class="right">${it.lumsum ? fmtNum(it.lumsumAmount) + ' Lumsum' : fmtNum(amt)}</td>
+        </tr>`;
+          }).join('') : doc.items.map((it, idx) => `<tr>
+          <td class="center">${idx + 1}</td>
+          <td>${esc(it.description)}</td>
+          <td class="center">${esc(it.unit)}</td>
+          <td class="right">${it.rate ? fmtNum(it.rate) : ''}</td>
+        </tr>`).join('');
+
+          const tableHeadHtml = withQty
+            ? `<tr><th>Sr.No.</th><th>Description of work</th><th>Qty.</th><th>Unit</th><th>Rate</th><th>Amount</th></tr>`
+            : `<tr><th>Sr.No.</th><th>Description of Work</th><th>Unit</th><th>Rate</th></tr>`;
+
+          const tableFootHtml = (withQty && showTotal)
+            ? `<tfoot><tr><td colspan="5" class="bold right">Total Amount</td><td class="bold right">₹ ${fmtNum(t)}</td></tr></tfoot>`
+            : '';
+
+          if (doc.style === 'gst') {
+            return `<div class="doc">
+          <div class="doctitle">QUOTATION</div>
+          <div class="small">DATE:- ${fmtDateDMY(doc.quoteDate)} &nbsp;|&nbsp; Quotation No: ${esc(doc.quoteNo)}</div>
+          <table class="no-border" style="margin-top:8px;">
+            <tr>
+              <td style="width:50%;vertical-align:top;">
+                <b>SHIPPER</b><br>
+                Company name : ${esc(co.name)}<br>
+                Address : ${esc(co.address)}<br>
+                Email : ${esc(co.email)}<br>
+                GSTIN : ${esc(co.gstin)}
+              </td>
+              <td style="width:50%;vertical-align:top;">
+                <b>RECEIVER</b><br>
+                Company name : ${esc(doc.clientName)}<br>
+                Address : ${esc(doc.clientAddress).replace(/\n/g, '<br>')}<br>
+                Email : ${esc(doc.clientEmail)}<br>
+                GSTIN : ${esc(doc.clientGstin)}
+              </td>
+            </tr>
+          </table>
+          ${doc.note ? `<div class="small" style="margin-top:6px;"><b>NOTE / REMARK :</b> ${esc(doc.note)}</div>` : ''}
+          <div class="section-title" style="margin-top:10px;">Subject:- ${esc(doc.subject)}</div>
+          <table style="margin-top:8px;">
+            <thead>${tableHeadHtml}</thead>
+            <tbody>${rowsHtml}</tbody>
+            ${tableFootHtml}
+          </table>
+          ${!withQty ? `<div class="small" style="margin-top:6px;">Rates as quoted above. Amount to be calculated as per actual quantity / site measurement.</div>` : ''}
+          ${doc.gstExtra ? `<div class="small" style="margin-top:6px;">GST Extra Applicable</div>` : ''}
+          ${doc.terms ? `<div class="small" style="margin-top:6px;"><b>Terms:</b> ${esc(doc.terms).replace(/\n/g, '<br>')}</div>` : ''}
+          <div class="sign-block">
+            <div></div>
+            <div class="center">Your Faithfully,<br>For ${esc(co.name)}<br><br><br>${esc(co.proprietorLabel)}</div>
+          </div>
+          <div class="small center" style="margin-top:14px;">Thanks for business with us!!! Please visit us again !!!</div>
+        </div>`;
+          }
+
+          // Simple style
+          return `<div class="doc">
+        <div class="letterhead">
+          <div class="cname">${esc(co.name)}</div>
+          <div class="ctag">${esc(co.tagline)}</div>
+          <div class="caddr">${esc(co.address)}</div>
+          <div class="ccontact">Mob: ${esc(co.mobile)} &nbsp;|&nbsp; Email: ${esc(co.email)}</div>
+        </div>
+        <hr>
+        <div class="small right">Date : ${fmtDateDMY(doc.quoteDate)}</div>
+        <div class="small" style="margin-top:6px;">To,<br>${esc(doc.clientName)}<br>${esc(doc.clientAddress).replace(/\n/g, '<br>')}</div>
+        <div class="section-title" style="margin-top:10px;">Sub.:- ${esc(doc.subject)}</div>
+        <table style="margin-top:8px;">
+          <thead>${tableHeadHtml}</thead>
+          <tbody>${rowsHtml}</tbody>
+          ${tableFootHtml}
+        </table>
+        ${!withQty ? `<div class="small" style="margin-top:8px;">Rates as quoted above. Amount to be calculated as per actual quantity / site measurement.</div>` : ''}
+        ${doc.note ? `<div class="small" style="margin-top:8px;"><b>Note:-</b> ${esc(doc.note)}</div>` : ''}
+        ${doc.terms ? `<div class="small" style="margin-top:6px;">${esc(doc.terms).replace(/\n/g, '<br>')}</div>` : ''}
+        <div class="sign-block">
+          <div>Thanking You,</div>
+          <div class="center">For ${esc(co.name)}<br><br><br>${esc(co.proprietorLabel)}</div>
+        </div>
+      </div>`;
+        },
+        preview() { Preview.show(`Quotation ${doc.quoteNo}`, this.buildDocHtml()); },
+        previewAndPrint() { this.preview(); setTimeout(() => Preview.print(), 250); }
+      };
+
+    })();
+
+    /* =====================================================================
+       RANDOM QUOTATION MODULE  (Any company, 100% manual letterhead & terms)
+       ===================================================================== */
+    const RandomQuotationModule = (function () {
+      let doc = null;
+
+      function blankRandomQuote() {
+        return {
+          id: Store.uid(),
+          docType: 'quote',
+          isRandom: true,
+          style: 'simple', // 'simple' | 'gst'
+          tableFormat: 'with_qty', // 'with_qty' | 'without_qty'
+          showTotalAmount: true,
+          quoteNo: '1',
+          quoteDate: new Date().toISOString().slice(0, 10),
+          // Custom / manual company / sender profile
+          company: {
+            name: '',
+            tagline: '',
+            address: '',
+            mobile: '',
+            email: '',
+            gstin: '',
+            signatory: 'Authorised Signatory'
+          },
+          // Client / receiver
+          clientName: '',
+          clientAddress: '',
+          clientEmail: '',
+          clientGstin: '',
+          subject: '',
+          note: '',
+          items: [blankItem()],
+          gstExtra: false,
+          terms: '',
+          status: 'draft',
+          createdAt: Date.now(),
+          updatedAt: Date.now()
+        };
+      }
+
+      function blankItem() {
+        return { id: Store.uid(), description: '', qty: '', unit: 'Nos.', rate: '', lumsum: false, lumsumAmount: '' };
+      }
+      function fmtDateDMY(iso) { if (!iso) return ''; const [y, m, d] = iso.split('-'); return `${d}/${m}/${y}`; }
+      function esc(s) { return (s === undefined || s === null) ? '' : String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+      function itemAmount(it) {
+        if (it.lumsum) return parseFloat(it.lumsumAmount) || 0;
+        return (parseFloat(it.qty) || 0) * (parseFloat(it.rate) || 0);
+      }
+      function total() { return doc.items.reduce((s, it) => s + itemAmount(it), 0); }
+      function isWithQty() { return doc.tableFormat !== 'without_qty'; }
+
+      function render(params) {
+        if (params && params.load) { doc = JSON.parse(JSON.stringify(params.load)); }
+        else if (!doc || (params && params.fresh)) { doc = blankRandomQuote(); }
+        if (!doc.company) doc.company = { name: '', tagline: '', address: '', mobile: '', email: '', gstin: '', signatory: 'Authorised Signatory' };
+
+        const el = document.getElementById('view-random-quotation');
+        el.innerHTML = `
+      <div class="toolbar">
+        <div class="title-block">
+          <h2>Random Quotation</h2>
+          <span class="sub">${doc.status === 'draft' ? 'Draft — not yet saved' : 'Editing saved custom document'} &bull; Independent of Rise n Shine</span>
+        </div>
+        <button class="btn" onclick="RandomQuotationModule.newDoc()">+ New</button>
+        <button class="btn" onclick="RandomQuotationModule.saveDraft()">&#128190; Save</button>
+        <button class="btn" onclick="Nav.go('drafts')">&#128193; Open Saved</button>
+        <button class="btn btn-amber" onclick="RandomQuotationModule.preview()">&#128065; Preview</button>
+        <button class="btn btn-primary" onclick="RandomQuotationModule.previewAndPrint()">&#128438; Print / PDF</button>
+      </div>
+
+      <!-- SENDER / COMPANY DETAILS -->
+      <div class="panel" style="border-left: 4px solid #9333ea;">
+        <h3 style="color:#7e22ce;">Quotation By (Your Company / Sender Details)</h3>
+        <p class="hint" style="margin-top:-8px;margin-bottom:14px;">Enter the business or contractor details you want on this quotation's letterhead.</p>
+        <div class="grid grid-3">
+          <div class="field" style="grid-column:1/3;">
+            <label>Company / Firm / Vendor Name *</label>
+            <input value="${esc(doc.company.name)}" placeholder="e.g. Acme Interior Solutions / Star Builders" oninput="RandomQuotationModule.companyField('name', this.value)">
+          </div>
+          <div class="field">
+            <label>GSTIN (Optional)</label>
+            <input value="${esc(doc.company.gstin)}" placeholder="e.g. 07AAAAA0000A1Z5" oninput="RandomQuotationModule.companyField('gstin', this.value)">
+          </div>
+          <div class="field" style="grid-column:1/-1;">
+            <label>Tagline / Description of Work</label>
+            <input value="${esc(doc.company.tagline)}" placeholder="e.g. Civil Contractor &amp; Interior Decorators" oninput="RandomQuotationModule.companyField('tagline', this.value)">
+          </div>
+          <div class="field" style="grid-column:1/3;">
+            <label>Office Address</label>
+            <input value="${esc(doc.company.address)}" placeholder="Full address" oninput="RandomQuotationModule.companyField('address', this.value)">
+          </div>
+          <div class="field">
+            <label>Mobile Number(s)</label>
+            <input value="${esc(doc.company.mobile)}" placeholder="e.g. +91 9876543210" oninput="RandomQuotationModule.companyField('mobile', this.value)">
+          </div>
+          <div class="field">
+            <label>Email Address</label>
+            <input value="${esc(doc.company.email)}" placeholder="e.g. contact@company.com" oninput="RandomQuotationModule.companyField('email', this.value)">
+          </div>
+          <div class="field">
+            <label>Authorised Signatory / Label</label>
+            <input value="${esc(doc.company.signatory)}" placeholder="e.g. Authorised Signatory / Proprietor" oninput="RandomQuotationModule.companyField('signatory', this.value)">
+          </div>
+        </div>
+      </div>
+
+      <!-- QUOTATION CONFIG -->
+      <div class="panel">
+        <h3>Quotation Meta &amp; Layout</h3>
+        <div class="field" style="margin-bottom:14px;">
+          <label>Item Table Format</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn ${isWithQty() ? 'btn-primary' : ''}" onclick="RandomQuotationModule.field('tableFormat','with_qty')">With Quantity</button>
+            <button type="button" class="btn ${!isWithQty() ? 'btn-primary' : ''}" onclick="RandomQuotationModule.field('tableFormat','without_qty')">Without Quantity</button>
+          </div>
+          <span class="hint">${isWithQty() ? 'Table: Sr. No. | Description of Work | Qty. | Unit | Rate | Amount' : 'Table: Sr. No. | Description of Work | Unit | Rate (no Qty., no Amount)'}</span>
+        </div>
+        <div class="grid grid-3">
+          <div class="field"><label>Format Style</label>
+            <select onchange="RandomQuotationModule.field('style', this.value)">
+              <option value="simple" ${doc.style === 'simple' ? 'selected' : ''}>Simple Letterhead (To, ... format)</option>
+              <option value="gst" ${doc.style === 'gst' ? 'selected' : ''}>Shipper / Receiver (GST format)</option>
+            </select>
+          </div>
+          <div class="field"><label>Quotation No.</label><input value="${esc(doc.quoteNo)}" oninput="RandomQuotationModule.field('quoteNo', this.value)"></div>
+          <div class="field"><label>Date</label><input type="date" value="${doc.quoteDate}" onchange="RandomQuotationModule.field('quoteDate', this.value)"></div>
+        </div>
+      </div>
+
+      <!-- CLIENT / RECEIVER DETAILS -->
+      <div class="panel">
+        <h3>${doc.style === 'gst' ? 'Receiver (Client) Details' : 'Client / To Details'}</h3>
+        <div class="grid grid-2">
+          <div class="field"><label>${doc.style === 'gst' ? 'Company / Client Name' : 'Client Name'}</label><input value="${esc(doc.clientName)}" placeholder="Client name or company" oninput="RandomQuotationModule.field('clientName', this.value)"></div>
+          ${doc.style === 'gst' ? `<div class="field"><label>Client GSTIN</label><input value="${esc(doc.clientGstin)}" oninput="RandomQuotationModule.field('clientGstin', this.value)"></div>` : ''}
+          <div class="field" style="grid-column:1/-1;"><label>Client Address</label><textarea placeholder="Client site / office address" oninput="RandomQuotationModule.field('clientAddress', this.value)">${esc(doc.clientAddress)}</textarea></div>
+          ${doc.style === 'gst' ? `<div class="field"><label>Email</label><input value="${esc(doc.clientEmail)}" oninput="RandomQuotationModule.field('clientEmail', this.value)"></div>` : ''}
+        </div>
+        <div class="field" style="margin-top:10px;"><label>Subject</label><input value="${esc(doc.subject)}" placeholder="e.g. Quotation for Interior Painting &amp; Renovation Work" oninput="RandomQuotationModule.field('subject', this.value)"></div>
+        ${doc.style === 'gst' ? `<div class="field" style="margin-top:10px;"><label>Note / Remark</label><input value="${esc(doc.note)}" oninput="RandomQuotationModule.field('note', this.value)"></div>` : ''}
+      </div>
+
+      <!-- WORK ITEMS -->
+      <div class="panel">
+        <h3>Work Items &amp; Rates</h3>
+        <div class="items-wrap">
+          <table class="items" id="randomQuoteItemsTable">
+            <thead><tr>
+              ${isWithQty() ? `
+              <th style="width:28px;">Sr</th><th>Description of Work</th><th style="width:64px;">Lumsum</th>
+              <th style="width:75px;">Qty.</th><th style="width:75px;">Unit</th><th style="width:80px;">Rate</th>
+              <th style="width:100px;">Amount</th><th style="width:34px;"></th>
+              ` : `
+              <th style="width:28px;">Sr</th><th>Description of Work</th><th style="width:110px;">Unit</th><th style="width:100px;">Rate</th><th style="width:34px;"></th>
+              `}
+            </tr></thead>
+            <tbody>${renderItemRows()}</tbody>
+          </table>
+        </div>
+        <button class="btn btn-sm add-row-btn" onclick="RandomQuotationModule.addItem()">+ Add Item</button>
+      </div>
+
+      <!-- TOTALS & TERMS -->
+      <div class="panel">
+        <h3>Totals &amp; Terms</h3>
+        ${isWithQty() ? `
+        <div class="field checkline" style="margin-bottom:10px;background:#f8fafc;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius-sm);">
+          <input type="checkbox" id="rq_showTotalAmount" ${doc.showTotalAmount !== false ? 'checked' : ''} onchange="RandomQuotationModule.field('showTotalAmount', this.checked)">
+          <label for="rq_showTotalAmount" style="font-weight:600;color:var(--navy);cursor:pointer;">
+            Display Total / Grand Total Amount
+          </label>
+        </div>` : ''}
+        <div class="field checkline">
+          <input type="checkbox" id="rq_gstExtra" ${doc.gstExtra ? 'checked' : ''} onchange="RandomQuotationModule.field('gstExtra', this.checked)">
+          <label for="rq_gstExtra">Show "GST Extra Applicable" note</label>
+        </div>
+        <div class="field" style="margin-top:10px;"><label>Terms &amp; Conditions / Notes</label><textarea placeholder="Payment terms, validity, exclusions, etc." oninput="RandomQuotationModule.field('terms', this.value)">${esc(doc.terms)}</textarea></div>
+        ${isWithQty() ? `<div class="summary-box" style="margin-top:14px;" id="randomQuoteSummary"></div>`
+            : `<div class="hint" style="margin-top:10px;">Without Quantity format shows rates only — no item Amount or Total is calculated.</div>`}
+      </div>
+    `;
+        updateSummary();
+      }
+
+      function renderItemRows() {
+        if (!isWithQty()) {
+          return doc.items.map((it, idx) => `<tr>
+        <td>${idx + 1}</td>
+        <td><input value="${esc(it.description)}" placeholder="Description of work" oninput="RandomQuotationModule.itemField('${it.id}','description',this.value)"></td>
+        <td><input value="${esc(it.unit)}" placeholder="Unit" oninput="RandomQuotationModule.itemField('${it.id}','unit',this.value)"></td>
+        <td><input type="number" step="0.01" value="${it.rate}" placeholder="Rate" oninput="RandomQuotationModule.itemField('${it.id}','rate',this.value)"></td>
+        <td><button class="row-del" title="Delete row" onclick="RandomQuotationModule.deleteItem('${it.id}')">&times;</button></td>
+      </tr>`).join('');
+        }
+        return doc.items.map((it, idx) => {
+          const amt = itemAmount(it);
+          return `<tr>
+        <td>${idx + 1}</td>
+        <td><input value="${esc(it.description)}" placeholder="Description of work" oninput="RandomQuotationModule.itemField('${it.id}','description',this.value)"></td>
+        <td style="text-align:center;"><input type="checkbox" ${it.lumsum ? 'checked' : ''} onchange="RandomQuotationModule.itemField('${it.id}','lumsum',this.checked)"></td>
+        <td>${it.lumsum ? '' : `<input type="number" step="0.01" value="${it.qty}" placeholder="Qty" oninput="RandomQuotationModule.itemField('${it.id}','qty',this.value)">`}</td>
+        <td><input value="${esc(it.unit)}" placeholder="Unit" oninput="RandomQuotationModule.itemField('${it.id}','unit',this.value)"></td>
+        <td>${it.lumsum ? '' : `<input type="number" step="0.01" value="${it.rate}" placeholder="Rate" oninput="RandomQuotationModule.itemField('${it.id}','rate',this.value)">`}</td>
+        <td>${it.lumsum
+              ? `<input type="number" step="0.01" value="${it.lumsumAmount}" placeholder="Lumsum amt" oninput="RandomQuotationModule.itemField('${it.id}','lumsumAmount',this.value)">`
+              : `<span class="amt-cell">${fmtNum(amt)}</span>`}</td>
+        <td><button class="row-del" title="Delete row" onclick="RandomQuotationModule.deleteItem('${it.id}')">&times;</button></td>
+      </tr>`;
+        }).join('');
+      }
+
+      function updateRowAmounts() {
+        if (!isWithQty()) return;
+        document.querySelectorAll('#randomQuoteItemsTable tbody tr').forEach((row, idx) => {
+          const it = doc.items[idx];
+          if (!it || it.lumsum) return;
+          const cell = row.children[6];
+          const amtSpan = cell.querySelector('.amt-cell');
+          if (amtSpan) amtSpan.textContent = fmtNum(itemAmount(it));
+        });
+      }
+
+      function updateSummary() {
+        const box = document.getElementById('randomQuoteSummary');
+        if (!box) return;
+        if (doc.showTotalAmount === false) {
+          box.innerHTML = `
+        <div style="background:#f8fafc;border:1px dashed var(--line-strong);border-radius:var(--radius-sm);padding:12px;text-align:center;color:var(--slate);font-size:12.5px;">
+          <em>Grand Total Amount is hidden (checkbox unticked). Ticking will show total amount and words.</em>
+        </div>
+      `;
+          return;
+        }
+        const t = total();
+        box.innerHTML = `
+      <div class="summary-row grand"><span>Total Amount</span><span>₹ ${fmtNum(t)}</span></div>
+      ${doc.gstExtra ? `<div class="hint" style="margin-top:4px;">GST Extra Applicable</div>` : ''}
+      <div class="words-box">${numberToWordsIndian(t)}</div>
+    `;
+      }
+
+      return {
+        render,
+        field(key, val) {
+          doc[key] = val;
+          if (key === 'style' || key === 'gstExtra' || key === 'tableFormat' || key === 'showTotalAmount') render({ load: doc });
+          else updateSummary();
+        },
+        companyField(key, val) {
+          if (!doc.company) doc.company = {};
+          doc.company[key] = val;
+        },
+        itemField(id, key, val) {
+          const it = doc.items.find(i => i.id === id);
+          if (it) { it[key] = val; if (key === 'lumsum') render({ load: doc }); else { updateRowAmounts(); updateSummary(); } }
+        },
+        addItem() { doc.items.push(blankItem()); render({ load: doc }); },
+        deleteItem(id) {
+          if (doc.items.length <= 1) { Toast.show('At least one item row is required'); return; }
+          doc.items = doc.items.filter(i => i.id !== id);
+          render({ load: doc });
+        },
+        newDoc() {
+          confirmAction('Start a new blank random quotation? Unsaved changes will be lost.', () => {
+            doc = null; render({ fresh: true }); Toast.show('New random quotation started');
+          });
+        },
+        saveDraft() {
+          let quotes = getQuotes();
+          doc.updatedAt = Date.now();
+          doc.status = 'saved';
+          const idx = quotes.findIndex(q => q.id === doc.id);
+          if (idx >= 0) quotes[idx] = doc; else quotes.push(doc);
+          Store.set(DB_KEYS.quotes, quotes);
+          Toast.show('Random Quotation saved');
+          render({ load: doc });
+        },
+        load(id) {
+          const q = getQuotes().find(x => x.id === id);
+          if (q) Nav.go('random-quotation', { load: q });
+        },
+        duplicate(id) {
+          const q = getQuotes().find(x => x.id === id);
+          if (!q) return;
+          const copy = JSON.parse(JSON.stringify(q));
+          copy.id = Store.uid();
+          copy.status = 'draft';
+          copy.quoteNo = (parseInt(copy.quoteNo) || 1) + 1 + '';
+          Nav.go('random-quotation', { load: copy });
+        },
+        buildDocHtml() {
+          const co = doc.company || {};
+          const t = total();
+          const withQty = isWithQty();
+          const showTotal = (doc.showTotalAmount !== false);
+
+          const rowsHtml = withQty ? doc.items.map((it, idx) => {
+            const amt = itemAmount(it);
+            return `<tr>
+          <td class="center">${idx + 1}</td>
+          <td>${esc(it.description)}</td>
+          <td class="right">${it.lumsum ? '' : (it.qty ? fmtInt(it.qty) : '')}</td>
+          <td class="center">${esc(it.unit)}</td>
+          <td class="right">${it.lumsum ? '' : (it.rate ? fmtNum(it.rate) : '')}</td>
+          <td class="right">${it.lumsum ? fmtNum(it.lumsumAmount) + ' Lumsum' : fmtNum(amt)}</td>
+        </tr>`;
+          }).join('') : doc.items.map((it, idx) => `<tr>
+          <td class="center">${idx + 1}</td>
+          <td>${esc(it.description)}</td>
+          <td class="center">${esc(it.unit)}</td>
+          <td class="right">${it.rate ? fmtNum(it.rate) : ''}</td>
+        </tr>`).join('');
+
+          const tableHeadHtml = withQty
+            ? `<tr><th>Sr.No.</th><th>Description of work</th><th>Qty.</th><th>Unit</th><th>Rate</th><th>Amount</th></tr>`
+            : `<tr><th>Sr.No.</th><th>Description of Work</th><th>Unit</th><th>Rate</th></tr>`;
+
+          const tableFootHtml = (withQty && showTotal)
+            ? `<tfoot><tr><td colspan="5" class="bold right">Total Amount</td><td class="bold right">₹ ${fmtNum(t)}</td></tr></tfoot>`
+            : '';
+
+          if (doc.style === 'gst') {
+            return `<div class="doc">
+          <div class="doctitle">QUOTATION</div>
+          <div class="small">DATE:- ${fmtDateDMY(doc.quoteDate)} &nbsp;|&nbsp; Quotation No: ${esc(doc.quoteNo)}</div>
+          <table class="no-border" style="margin-top:8px;">
+            <tr>
+              <td style="width:50%;vertical-align:top;">
+                <b>SHIPPER</b><br>
+                Company name : ${esc(co.name)}<br>
+                Address : ${esc(co.address).replace(/\n/g, '<br>')}<br>
+                ${co.email ? `Email : ${esc(co.email)}<br>` : ''}
+                ${co.mobile ? `Mobile : ${esc(co.mobile)}<br>` : ''}
+                ${co.gstin ? `GSTIN : ${esc(co.gstin)}` : ''}
+              </td>
+              <td style="width:50%;vertical-align:top;">
+                <b>RECEIVER</b><br>
+                Company name : ${esc(doc.clientName)}<br>
+                Address : ${esc(doc.clientAddress).replace(/\n/g, '<br>')}<br>
+                ${doc.clientEmail ? `Email : ${esc(doc.clientEmail)}<br>` : ''}
+                ${doc.clientGstin ? `GSTIN : ${esc(doc.clientGstin)}` : ''}
+              </td>
+            </tr>
+          </table>
+          ${doc.note ? `<div class="small" style="margin-top:6px;"><b>NOTE / REMARK :</b> ${esc(doc.note)}</div>` : ''}
+          <div class="section-title" style="margin-top:10px;">Subject:- ${esc(doc.subject)}</div>
+          <table style="margin-top:8px;">
+            <thead>${tableHeadHtml}</thead>
+            <tbody>${rowsHtml}</tbody>
+            ${tableFootHtml}
+          </table>
+          ${!withQty ? `<div class="small" style="margin-top:6px;">Rates as quoted above. Amount to be calculated as per actual quantity / site measurement.</div>` : ''}
+          ${doc.gstExtra ? `<div class="small" style="margin-top:6px;">GST Extra Applicable</div>` : ''}
+          ${doc.terms ? `<div class="small" style="margin-top:6px;"><b>Terms:</b> ${esc(doc.terms).replace(/\n/g, '<br>')}</div>` : ''}
+          <div class="sign-block">
+            <div></div>
+            <div class="center">Your Faithfully,<br>For ${esc(co.name || 'Company')}<br><br><br>${esc(co.signatory || 'Authorised Signatory')}</div>
+          </div>
+          <div class="small center" style="margin-top:14px;">Thanks for business with us!!! Please visit us again !!!</div>
+        </div>`;
+          }
+
+          // Simple style with custom company letterhead
+          return `<div class="doc">
+        <div class="letterhead">
+          <div class="cname" style="color:var(--navy);">${esc(co.name || 'QUOTATION')}</div>
+          ${co.tagline ? `<div class="ctag">${esc(co.tagline)}</div>` : ''}
+          ${co.address ? `<div class="caddr">${esc(co.address)}</div>` : ''}
+          ${(co.mobile || co.email) ? `<div class="ccontact">${co.mobile ? `Mob: ${esc(co.mobile)}` : ''} ${co.email ? `&nbsp;|&nbsp; Email: ${esc(co.email)}` : ''} ${co.gstin ? `&nbsp;|&nbsp; GSTIN: ${esc(co.gstin)}` : ''}</div>` : ''}
+        </div>
+        <hr>
+        <div class="small right">Date : ${fmtDateDMY(doc.quoteDate)}</div>
+        <div class="small" style="margin-top:6px;">To,<br>${esc(doc.clientName)}<br>${esc(doc.clientAddress).replace(/\n/g, '<br>')}</div>
+        <div class="section-title" style="margin-top:10px;">Sub.:- ${esc(doc.subject)}</div>
+        <table style="margin-top:8px;">
+          <thead>${tableHeadHtml}</thead>
+          <tbody>${rowsHtml}</tbody>
+          ${tableFootHtml}
+        </table>
+        ${!withQty ? `<div class="small" style="margin-top:8px;">Rates as quoted above. Amount to be calculated as per actual quantity / site measurement.</div>` : ''}
+        ${doc.note ? `<div class="small" style="margin-top:8px;"><b>Note:-</b> ${esc(doc.note)}</div>` : ''}
+        ${doc.terms ? `<div class="small" style="margin-top:6px;">${esc(doc.terms).replace(/\n/g, '<br>')}</div>` : ''}
+        <div class="sign-block">
+          <div>Thanking You,</div>
+          <div class="center">For ${esc(co.name || 'Company')}<br><br><br>${esc(co.signatory || 'Authorised Signatory')}</div>
+        </div>
+      </div>`;
+        },
+        preview() { Preview.show(`Random Quotation ${doc.quoteNo}`, this.buildDocHtml()); },
+        previewAndPrint() { this.preview(); setTimeout(() => Preview.print(), 250); }
+      };
+
+    })();
+
+    /* =====================================================================
+       MEASUREMENT SHEET MODULE  (L x W x Nos, room-wise Less Area, Grand Total)
+       ===================================================================== */
+    const MeasurementModule = (function () {
+      let doc = null;
+
+      const WORK_TYPES = ['Wall Punning', 'Bonding Chemical', 'Skirting Groove', 'Ceiling Patra Finish',
+        'POP Punning', 'Gypsum Board Work', 'False Ceiling', 'Gypsum Partition', 'Wall Plaster', 'Painting', 'Other'];
+
+      function blankMeasure() {
+        return {
+          id: Store.uid(), docType: 'measure',
+          projectName: '', towerName: '', flatNo: '', workType: 'Wall Punning', workTypeCustom: '',
+          grandUnit: 'Sqft.',
+          rooms: [blankRoom('Hall')],
+          status: 'draft', createdAt: Date.now(), updatedAt: Date.now()
+        };
+      }
+      function blankRoom(name) {
+        return { id: Store.uid(), name: name || 'Room', rows: [blankRow()], lessRows: [blankRow()] };
+      }
+      function blankRow() {
+        return { id: Store.uid(), l: '', w: '', nos: '', unit: 'Sqft.', remarks: '' };
+      }
+      function esc(s) { return (s === undefined || s === null) ? '' : String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+      function rowQty(r) {
+        const l = parseFloat(r.l) || 0, w = parseFloat(r.w) || 0, nos = parseFloat(r.nos) || 0;
+        return l * w * nos;
+      }
+      function roomTotals(room) {
+        const total = room.rows.reduce((s, r) => s + rowQty(r), 0);
+        const less = room.lessRows.reduce((s, r) => s + rowQty(r), 0);
+        return { total, less, afterLess: total - less };
+      }
+      function grandTotal() {
+        return doc.rooms.reduce((s, room) => s + roomTotals(room).afterLess, 0);
+      }
+
+      function render(params) {
+        if (params && params.load) { doc = JSON.parse(JSON.stringify(params.load)); }
+        else if (!doc || (params && params.fresh)) { doc = blankMeasure(); }
+        const el = document.getElementById('view-measurement');
+        el.innerHTML = `
+      <div class="toolbar">
+        <div class="title-block">
+          <h2>Measurement Sheet</h2>
+          <span class="sub">${doc.status === 'draft' ? 'Draft — not yet saved' : 'Editing saved document'}</span>
+        </div>
+        <button class="btn" onclick="MeasurementModule.newDoc()">+ New</button>
+        <button class="btn" onclick="MeasurementModule.saveDraft()">&#128190; Save</button>
+        <button class="btn" onclick="Nav.go('drafts')">&#128193; Open Saved</button>
+        <button class="btn btn-amber" onclick="MeasurementModule.preview()">&#128065; Preview</button>
+        <button class="btn btn-primary" onclick="MeasurementModule.previewAndPrint()">&#128438; Print / PDF</button>
+      </div>
+
+      <div class="panel">
+        <h3>Sheet Details</h3>
+        <div class="grid grid-4">
+          <div class="field"><label>Project / Tower Name</label><input value="${esc(doc.towerName)}" placeholder="e.g. Empire Tower-1" oninput="MeasurementModule.field('towerName', this.value)"></div>
+          <div class="field"><label>Flat / Unit No.</label><input value="${esc(doc.flatNo)}" placeholder="e.g. 3102 & 2202" oninput="MeasurementModule.field('flatNo', this.value)"></div>
+          <div class="field"><label>Work Type</label>
+            <select onchange="MeasurementModule.field('workType', this.value)">
+              ${WORK_TYPES.map(w => `<option ${doc.workType === w ? 'selected' : ''}>${w}</option>`).join('')}
+            </select>
+          </div>
+          ${doc.workType === 'Other' ? `<div class="field"><label>Custom Work Type</label><input value="${esc(doc.workTypeCustom)}" oninput="MeasurementModule.field('workTypeCustom', this.value)"></div>` : `<div class="field"><label>Grand Total Unit Label</label><input value="${esc(doc.grandUnit)}" oninput="MeasurementModule.field('grandUnit', this.value)"></div>`}
+        </div>
+      </div>
+
+      <div id="roomsContainer">${doc.rooms.map(room => renderRoom(room)).join('')}</div>
+
+      <button class="btn btn-amber" style="margin-bottom:16px;" onclick="MeasurementModule.addRoom()">+ Add Room / Area</button>
+
+      <div class="panel">
+        <h3>Sheet Grand Total</h3>
+        <div class="summary-box" id="measureSummary" style="margin-left:0;width:100%;max-width:420px;"></div>
+      </div>
+    `;
+        updateSummary();
+      }
+
+      function renderRoom(room) {
+        const rt = roomTotals(room);
+        return `<div class="room-block" data-room="${room.id}">
+      <div class="room-head">
+        <input class="room-name" value="${esc(room.name)}" oninput="MeasurementModule.roomField('${room.id}','name',this.value)">
+        <button class="btn btn-sm" onclick="MeasurementModule.duplicateRoom('${room.id}')">Duplicate</button>
+        <button class="btn btn-sm btn-danger" onclick="MeasurementModule.deleteRoom('${room.id}')">Delete Room</button>
+      </div>
+      <div class="room-body">
+        <div class="room-sec-label">Measurement (L &times; W &times; Nos.)</div>
+        <div class="items-wrap">
+          <table class="items">
+            <thead><tr><th style="width:70px;">L</th><th style="width:70px;">W</th><th style="width:60px;">Nos.</th><th style="width:80px;">Qty.</th><th style="width:75px;">Unit</th><th>Remarks</th><th style="width:34px;"></th></tr></thead>
+            <tbody>${renderRowSet(room, 'rows')}</tbody>
+          </table>
+        </div>
+        <button class="btn btn-sm" onclick="MeasurementModule.addRow('${room.id}','rows')">+ Add Row</button>
+
+        <div class="room-sec-label" style="margin-top:14px;">Less Area (doors / windows / beams etc.)</div>
+        <div class="items-wrap">
+          <table class="items">
+            <thead><tr><th style="width:70px;">L</th><th style="width:70px;">W</th><th style="width:60px;">Nos.</th><th style="width:80px;">Qty.</th><th style="width:75px;">Unit</th><th>Remarks</th><th style="width:34px;"></th></tr></thead>
+            <tbody>${renderRowSet(room, 'lessRows')}</tbody>
+          </table>
+        </div>
+        <button class="btn btn-sm" onclick="MeasurementModule.addRow('${room.id}','lessRows')">+ Add Less-Area Row</button>
+      </div>
+      <div class="room-totals">
+        <span>Total Area: <b>${fmtNum(rt.total)}</b></span>
+        <span>Less Area: <b>${fmtNum(rt.less)}</b></span>
+        <span>Area After Less: <span class="after-less">${fmtNum(rt.afterLess)}</span></span>
+      </div>
+    </div>`;
+      }
+
+      function renderRowSet(room, key) {
+        return room[key].map(r => {
+          const qty = rowQty(r);
+          return `<tr>
+        <td><input type="number" step="0.01" value="${r.l}" oninput="MeasurementModule.rowField('${room.id}','${key}','${r.id}','l',this.value)"></td>
+        <td><input type="number" step="0.01" value="${r.w}" oninput="MeasurementModule.rowField('${room.id}','${key}','${r.id}','w',this.value)"></td>
+        <td><input type="number" step="0.01" value="${r.nos}" oninput="MeasurementModule.rowField('${room.id}','${key}','${r.id}','nos',this.value)"></td>
+        <td class="amt-cell">${fmtNum(qty)}</td>
+        <td><input value="${esc(r.unit)}" oninput="MeasurementModule.rowField('${room.id}','${key}','${r.id}','unit',this.value)"></td>
+        <td><input value="${esc(r.remarks)}" placeholder="e.g. Left and Right Side Wall" oninput="MeasurementModule.rowField('${room.id}','${key}','${r.id}','remarks',this.value)"></td>
+        <td><button class="row-del" onclick="MeasurementModule.deleteRow('${room.id}','${key}','${r.id}')">&times;</button></td>
+      </tr>`;
+        }).join('');
+      }
+
+      function updateSummary() {
+        // update each room's live totals footer + table qty cells without full re-render (preserve focus)
+        doc.rooms.forEach(room => {
+          const block = document.querySelector(`.room-block[data-room="${room.id}"]`);
+          if (!block) return;
+          const tables = block.querySelectorAll('table.items');
+          ['rows', 'lessRows'].forEach((key, ti) => {
+            const tbody = tables[ti].querySelector('tbody');
+            room[key].forEach((r, ri) => {
+              const row = tbody.children[ri];
+              if (row) row.children[3].textContent = fmtNum(rowQty(r));
+            });
+          });
+          const rt = roomTotals(room);
+          const totalsEl = block.querySelector('.room-totals');
+          totalsEl.innerHTML = `
+        <span>Total Area: <b>${fmtNum(rt.total)}</b></span>
+        <span>Less Area: <b>${fmtNum(rt.less)}</b></span>
+        <span>Area After Less: <span class="after-less">${fmtNum(rt.afterLess)}</span></span>`;
+        });
+        const box = document.getElementById('measureSummary');
+        if (box) {
+          box.innerHTML = `<div class="summary-row grand"><span>Grand Total (${esc(doc.workType === 'Other' ? doc.workTypeCustom : doc.grandUnit)})</span><span>${fmtNum(grandTotal())}</span></div>`;
+        }
+      }
+
+      return {
+        render,
+        field(key, val) { doc[key] = val; if (key === 'workType') render({ load: doc }); else updateSummary(); },
+        roomField(roomId, key, val) {
+          const room = doc.rooms.find(r => r.id === roomId);
+          if (room) { room[key] = val; }
+        },
+        rowField(roomId, setKey, rowId, key, val) {
+          const room = doc.rooms.find(r => r.id === roomId);
+          if (!room) return;
+          const row = room[setKey].find(r => r.id === rowId);
+          if (row) { row[key] = val; updateSummary(); }
+        },
+        addRoom() { doc.rooms.push(blankRoom('New Room')); render({ load: doc }); },
+        duplicateRoom(roomId) {
+          const room = doc.rooms.find(r => r.id === roomId);
+          if (!room) return;
+          const copy = JSON.parse(JSON.stringify(room));
+          copy.id = Store.uid();
+          copy.rows.forEach(r => r.id = Store.uid());
+          copy.lessRows.forEach(r => r.id = Store.uid());
+          copy.name = room.name + ' (copy)';
+          const idx = doc.rooms.findIndex(r => r.id === roomId);
+          doc.rooms.splice(idx + 1, 0, copy);
+          render({ load: doc });
+        },
+        deleteRoom(roomId) {
+          if (doc.rooms.length <= 1) { Toast.show('At least one room is required'); return; }
+          confirmAction('Delete this room and all its measurement rows?', () => {
+            doc.rooms = doc.rooms.filter(r => r.id !== roomId);
+            render({ load: doc });
+            Toast.show('Room deleted');
+          });
+        },
+        addRow(roomId, setKey) {
+          const room = doc.rooms.find(r => r.id === roomId);
+          if (room) { room[setKey].push(blankRow()); render({ load: doc }); }
+        },
+        deleteRow(roomId, setKey, rowId) {
+          const room = doc.rooms.find(r => r.id === roomId);
+          if (!room) return;
+          if (room[setKey].length <= 1) { Toast.show('At least one row is required'); return; }
+          room[setKey] = room[setKey].filter(r => r.id !== rowId);
+          render({ load: doc });
+        },
+        newDoc() {
+          confirmAction('Start a new blank measurement sheet? Unsaved changes on the current one will be lost.', () => {
+            doc = null; render({ fresh: true }); Toast.show('New measurement sheet started');
+          });
+        },
+        saveDraft() {
+          let list = getMeasures();
+          doc.updatedAt = Date.now(); doc.status = 'saved';
+          const idx = list.findIndex(m => m.id === doc.id);
+          if (idx >= 0) list[idx] = doc; else list.push(doc);
+          Store.set(DB_KEYS.measures, list);
+          Toast.show('Measurement sheet saved');
+          render({ load: doc });
+        },
+        load(id) {
+          const m = getMeasures().find(x => x.id === id);
+          if (m) Nav.go('measurement', { load: m });
+        },
+        duplicate(id) {
+          const m = getMeasures().find(x => x.id === id);
+          if (!m) return;
+          const copy = JSON.parse(JSON.stringify(m));
+          copy.id = Store.uid(); copy.status = 'draft';
+          Nav.go('measurement', { load: copy });
+        },
+        buildDocHtml() {
+          const co = getCompany();
+          const workTypeLabel = doc.workType === 'Other' ? (doc.workTypeCustom || 'Work') : doc.workType;
+          const roomsHtml = doc.rooms.map(room => {
+            const rt = roomTotals(room);
+            const rowsHtml = room.rows.map(r => `<tr>
+          <td class="right">${r.l || ''}</td><td class="right">${r.w || ''}</td><td class="right">${r.nos || ''}</td>
+          <td class="right">${fmtNum(rowQty(r))}</td><td class="center">${esc(r.unit)}</td><td>${esc(r.remarks)}</td>
+        </tr>`).join('');
+            const lessHtml = room.lessRows.filter(r => rowQty(r) > 0 || r.remarks).map(r => `<tr>
+          <td class="right">${r.l || ''}</td><td class="right">${r.w || ''}</td><td class="right">${r.nos || ''}</td>
+          <td class="right">${fmtNum(rowQty(r))}</td><td class="center">${esc(r.unit)}</td><td>${esc(r.remarks)}</td>
+        </tr>`).join('');
+            return `
+          <div class="room-title">${esc(room.name)}</div>
+          <table>
+            <thead><tr><th>L</th><th>W</th><th>Nos.</th><th>Qty.</th><th>Unit</th><th>Remarks</th></tr></thead>
+            <tbody>${rowsHtml}</tbody>
+            <tfoot><tr><td colspan="3" class="right bold">Total ${esc(room.name)} Area</td><td class="right bold">${fmtNum(rt.total)}</td><td colspan="2"></td></tr></tfoot>
+          </table>
+          ${lessHtml ? `<table style="margin-top:-1px;">
+            <tbody>${lessHtml}</tbody>
+            <tfoot><tr><td colspan="3" class="right bold">${esc(room.name)} Less Area</td><td class="right bold">${fmtNum(rt.less)}</td><td colspan="2"></td></tr></tfoot>
+          </table>` : ''}
+          <table style="margin-top:-1px;">
+            <tfoot><tr><td colspan="3" class="right bold">${esc(room.name)} Area After Less</td><td class="right bold">${fmtNum(rt.afterLess)} ${esc(doc.grandUnit)}</td><td colspan="2"></td></tr></tfoot>
+          </table>
+        `;
+          }).join('');
+
+          return `<div class="doc">
+        <div class="letterhead">
+          <div class="cname">${esc(co.name)}</div>
+        </div>
+        <div class="doctitle">${esc(workTypeLabel)} ${doc.towerName ? '( ' + esc(doc.towerName) + ' )' : ''}</div>
+        <div class="small center" style="margin-bottom:6px;">Flat Number - ${esc(doc.flatNo)}</div>
+        ${roomsHtml}
+        <table style="margin-top:6px;">
+          <tfoot><tr><td class="bold">Grand Total ${esc(workTypeLabel)} Area (${esc(doc.grandUnit)})</td><td class="right bold">${fmtNum(grandTotal())}</td></tr></tfoot>
+        </table>
+      </div>`;
+        },
+        preview() { Preview.show(`Measurement — ${doc.flatNo || ''}`, this.buildDocHtml()); },
+        previewAndPrint() { this.preview(); setTimeout(() => Preview.print(), 250); }
+      };
+    })();
+
+    /* =====================================================================
+       DRAFTS / SAVED DOCUMENTS LIBRARY
+       ===================================================================== */
+    const DraftsModule = (function () {
+      let filter = 'all';
+      let search = '';
+
+      function esc(s) { return (s === undefined || s === null) ? '' : String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+      function fmtDate(ts) { const d = new Date(ts); return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }); }
+
+      function allDocs() {
+        const bills = getBills().map(d => ({ ...d, kind: 'bill' }));
+        const quotes = getQuotes().map(d => ({ ...d, kind: 'quote' }));
+        const measures = getMeasures().map(d => ({ ...d, kind: 'measure' }));
+        return [...bills, ...quotes, ...measures].sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+      }
+
+      function label(d) {
+        if (d.kind === 'bill') return `Bill #${esc(d.invoiceNo)} — ${esc(d.client.name || 'Untitled Client')}`;
+        if (d.kind === 'quote' && d.isRandom) {
+          const comp = (d.company && d.company.name) ? d.company.name : 'Custom Vendor';
+          return `Random Quote #${esc(d.quoteNo)} — ${esc(comp)} &rarr; ${esc(d.clientName || 'Untitled Client')}`;
+        }
+        if (d.kind === 'quote') return `Quotation #${esc(d.quoteNo)} — ${esc(d.clientName || 'Untitled Client')}`;
+        if (d.kind === 'measure') return `${esc(d.workType === 'Other' ? d.workTypeCustom : d.workType)} — Flat ${esc(d.flatNo || '—')}`;
+      }
+      function tagHtml(d) {
+        if (d.kind === 'bill') return `<span class="tag bill">BILL</span>`;
+        if (d.kind === 'quote' && d.isRandom) return `<span class="tag random">RANDOM QUOTE</span>`;
+        if (d.kind === 'quote') return `<span class="tag quote">QUOTATION</span>`;
+        return `<span class="tag measure">MEASUREMENT</span>`;
+      }
+
+      function render() {
+        const el = document.getElementById('view-drafts');
+        let docs = allDocs();
+        if (filter !== 'all') {
+          if (filter === 'random-quote') docs = docs.filter(d => d.kind === 'quote' && d.isRandom);
+          else if (filter === 'quote') docs = docs.filter(d => d.kind === 'quote' && !d.isRandom);
+          else docs = docs.filter(d => d.kind === filter);
+        }
+        if (search.trim()) docs = docs.filter(d => label(d).toLowerCase().includes(search.toLowerCase()));
+
+        el.innerHTML = `
+      <div class="toolbar">
+        <div class="title-block"><h2>Saved Documents</h2><span class="sub">${allDocs().length} total</span></div>
+        <input placeholder="Search..." value="${esc(search)}" style="border:1px solid var(--line);border-radius:7px;padding:8px 10px;min-width:180px;" oninput="DraftsModule.setSearch(this.value)">
+        <select style="border:1px solid var(--line);border-radius:7px;padding:8px 10px;" onchange="DraftsModule.setFilter(this.value)">
+          <option value="all" ${filter === 'all' ? 'selected' : ''}>All Types</option>
+          <option value="bill" ${filter === 'bill' ? 'selected' : ''}>Bills</option>
+          <option value="quote" ${filter === 'quote' ? 'selected' : ''}>Quotations (Rise n Shine)</option>
+          <option value="random-quote" ${filter === 'random-quote' ? 'selected' : ''}>Random Quotations</option>
+          <option value="measure" ${filter === 'measure' ? 'selected' : ''}>Measurement Sheets</option>
+        </select>
+      </div>
+      ${docs.length === 0 ? `<div class="empty-state panel"><div class="big">&#128194;</div><p>No saved documents yet. Create a Bill, Quotation, or Measurement Sheet and click Save.</p></div>` : `
+      <div class="panel" style="padding:0;overflow-x:auto;">
+        <table class="drafts-table">
+          <thead><tr><th>Type</th><th>Document</th><th>Last Updated</th><th style="text-align:right;">Actions</th></tr></thead>
+          <tbody>
+            ${docs.map(d => `<tr>
+              <td>${tagHtml(d)}</td>
+              <td>${label(d)}</td>
+              <td>${fmtDate(d.updatedAt)}</td>
+              <td style="text-align:right;">
+                <button class="btn btn-sm" onclick="DraftsModule.open('${d.kind}','${d.id}',${d.isRandom ? 'true' : 'false'})">Open</button>
+                <button class="btn btn-sm" onclick="DraftsModule.dup('${d.kind}','${d.id}',${d.isRandom ? 'true' : 'false'})">Duplicate</button>
+                <button class="btn btn-sm btn-danger" onclick="DraftsModule.remove('${d.kind}','${d.id}')">Delete</button>
+              </td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`}
+    `;
+      }
+
+      return {
+        render,
+        setFilter(v) { filter = v; render(); },
+        setSearch(v) { search = v; render(); },
+        open(kind, id, isRandom) {
+          if (kind === 'bill') BillModule.load(id);
+          else if (kind === 'quote') {
+            if (isRandom) RandomQuotationModule.load(id);
+            else QuotationModule.load(id);
+          }
+          else MeasurementModule.load(id);
+        },
+        dup(kind, id, isRandom) {
+          if (kind === 'bill') BillModule.duplicate(id);
+          else if (kind === 'quote') {
+            if (isRandom) RandomQuotationModule.duplicate(id);
+            else QuotationModule.duplicate(id);
+          }
+          else MeasurementModule.duplicate(id);
+        },
+        remove(kind, id) {
+          confirmAction('Delete this saved document? This cannot be undone.', () => {
+            const key = kind === 'bill' ? DB_KEYS.bills : kind === 'quote' ? DB_KEYS.quotes : DB_KEYS.measures;
+            const list = Store.get(key, []).filter(d => d.id !== id);
+            Store.set(key, list);
+            Toast.show('Document deleted');
+            render();
+            DashboardModule.refresh();
+          });
+        }
+      };
+    })();
+
+    /* =====================================================================
+       SETTINGS MODULE  (Company Profile + Rate Master)
+       ===================================================================== */
+    const SettingsModule = (function () {
+      function esc(s) { return (s === undefined || s === null) ? '' : String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+      function fmtTime(ts) { return ts ? new Date(ts).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : ''; }
+
+      let companyDraft = null;      // working copy being edited, not yet necessarily saved
+      let companyLastSavedAt = null;
+      let rateDraftRows = null;     // working copy of rate rows, each may be unsaved
+      let rateLastSavedAt = null;
+
+      function freshCompanyDraft() { return JSON.parse(JSON.stringify(getCompany())); }
+      function freshRateDraftRows() {
+        return getRates().map(r => ({ ...r, _isNew: false }));
+      }
+
+      function persistenceBanner() {
+        if (Store.persistent === false) {
+          return `<div class="panel" style="border-color:#e6b8a8;background:#fdf3f1;">
+        <h3 style="color:var(--red);">Storage Warning</h3>
+        <p style="margin:0;font-size:13px;">This browser is blocking permanent local storage for this file (common in private/incognito mode, some in-app browsers, or strict privacy settings). Your changes will work for this session, but <b>will NOT survive a refresh or reopen</b> until you open this file in a normal browser tab (Chrome/Edge/Firefox) with storage allowed.</p>
+      </div>`;
+        }
+        return '';
+      }
+
+      function render() {
+        if (companyDraft === null) companyDraft = freshCompanyDraft();
+        if (rateDraftRows === null) rateDraftRows = freshRateDraftRows();
+        const co = companyDraft;
+        const el = document.getElementById('view-settings');
+        el.innerHTML = `
+      <div class="toolbar">
+        <div class="title-block"><h2>Settings</h2><span class="sub">Your letterhead details and item rates, used across Bill &amp; Quotation</span></div>
+      </div>
+      ${persistenceBanner()}
+
+      <div class="panel">
+        <h3>Company / Letterhead Details</h3>
+        <div class="grid grid-2">
+          <div class="field"><label>Company Name</label><input id="s_name" value="${esc(co.name)}" oninput="SettingsModule.companyField('name',this.value)"></div>
+          <div class="field"><label>Proprietor / Signatory Title</label><input id="s_proprietorLabel" value="${esc(co.proprietorLabel)}" oninput="SettingsModule.companyField('proprietorLabel',this.value)"></div>
+          <div class="field" style="grid-column:1/-1;"><label>Tagline</label><input id="s_tagline" value="${esc(co.tagline)}" oninput="SettingsModule.companyField('tagline',this.value)"></div>
+          <div class="field" style="grid-column:1/-1;"><label>Address</label><textarea id="s_address" oninput="SettingsModule.companyField('address',this.value)">${esc(co.address)}</textarea></div>
+          <div class="field"><label>Mobile</label><input id="s_mobile" value="${esc(co.mobile)}" oninput="SettingsModule.companyField('mobile',this.value)"></div>
+          <div class="field"><label>Email</label><input id="s_email" value="${esc(co.email)}" oninput="SettingsModule.companyField('email',this.value)"></div>
+          <div class="field"><label>GSTIN</label><input id="s_gstin" value="${esc(co.gstin)}" oninput="SettingsModule.companyField('gstin',this.value)"></div>
+          <div class="field"><label>State</label><input id="s_state" value="${esc(co.state)}" oninput="SettingsModule.companyField('state',this.value)"></div>
+          <div class="field"><label>State Code</label><input id="s_stateCode" value="${esc(co.stateCode)}" oninput="SettingsModule.companyField('stateCode',this.value)"></div>
+          <div class="field"><label>Bank Account No.</label><input id="s_bankAccount" value="${esc(co.bankAccount)}" oninput="SettingsModule.companyField('bankAccount',this.value)"></div>
+          <div class="field"><label>Bank Name</label><input id="s_bankName" value="${esc(co.bankName)}" oninput="SettingsModule.companyField('bankName',this.value)"></div>
+          <div class="field"><label>Bank IFSC</label><input id="s_bankIFSC" value="${esc(co.bankIFSC)}" oninput="SettingsModule.companyField('bankIFSC',this.value)"></div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:14px;">
+          <button class="btn btn-primary" onclick="SettingsModule.saveCompany()">&#128190; Save / Update</button>
+          <button class="btn" onclick="SettingsModule.cancelCompany()">Cancel</button>
+          <button class="btn btn-danger" onclick="SettingsModule.resetCompany()">Reset to Default</button>
+          ${companyLastSavedAt ? `<span class="hint">Last saved ${fmtTime(companyLastSavedAt)}</span>` : `<span class="hint">Not saved yet this session</span>`}
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Rate Master (your standard items &amp; rates)</h3>
+        <div class="items-wrap">
+          <table class="items" id="rateTable">
+            <thead><tr><th>Description</th><th style="width:110px;">Unit</th><th style="width:110px;">Rate</th><th style="width:150px;">Status / Actions</th></tr></thead>
+            <tbody>${renderRateRows()}</tbody>
+          </table>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;">
+          <button class="btn btn-sm btn-amber add-row-btn" onclick="SettingsModule.addRate()">+ Add Rate</button>
+          ${rateLastSavedAt ? `<span class="hint">Last saved ${fmtTime(rateLastSavedAt)}</span>` : ''}
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Data</h3>
+        <p style="font-size:13px;color:var(--slate);margin-top:0;">All your data is stored only on this computer's browser storage. Nothing is uploaded anywhere.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn" onclick="SettingsModule.exportData()">&#11015;&#65039; Export Backup (.json)</button>
+          <button class="btn" onclick="document.getElementById('importFile').click()">&#11014;&#65039; Import Backup</button>
+          <input type="file" id="importFile" accept=".json" style="display:none;" onchange="SettingsModule.importData(this.files[0])">
+          <button class="btn btn-danger" onclick="SettingsModule.wipeAll()">Erase All Data</button>
+        </div>
+      </div>
+    `;
+      }
+
+      function renderRateRows() {
+        return rateDraftRows.map(r => {
+          const savedEntry = getRates().find(x => x.id === r.id);
+          const dirty = r._isNew || !savedEntry || savedEntry.description !== r.description || savedEntry.unit !== r.unit || parseFloat(savedEntry.rate) !== parseFloat(r.rate || 0);
+          return `<tr data-id="${r.id}">
+        <td><input value="${esc(r.description)}" placeholder="Item description" oninput="SettingsModule.rateField('${r.id}','description',this.value)"></td>
+        <td><input value="${esc(r.unit)}" oninput="SettingsModule.rateField('${r.id}','unit',this.value)"></td>
+        <td><input type="number" step="0.01" value="${r.rate}" oninput="SettingsModule.rateField('${r.id}','rate',this.value)"></td>
+        <td style="white-space:nowrap;">
+          ${dirty
+              ? `<button class="btn btn-sm btn-primary" onclick="SettingsModule.saveRate('${r.id}')">Save</button>
+               <button class="btn btn-sm" onclick="SettingsModule.cancelRate('${r.id}')">Cancel</button>`
+              : `<span class="hint" style="color:var(--green);">&#10003; Saved</span>`}
+          <button class="row-del" title="Delete" onclick="SettingsModule.deleteRate('${r.id}')">&times;</button>
+        </td>
+      </tr>`;
+        }).join('');
+      }
+
+      return {
+        render,
+        companyField(key, val) { companyDraft[key] = val; },
+        saveCompany() {
+          const ok = Store.set(DB_KEYS.company, companyDraft);
+          companyLastSavedAt = Date.now();
+          if (ok) {
+            Toast.show('✓ Company details saved — will remain after refresh');
+          } else {
+            Toast.show('⚠ Saved for this session only — browser is blocking permanent storage');
+          }
+          DashboardModule.refresh();
+          render();
+        },
+        cancelCompany() {
+          companyDraft = freshCompanyDraft();
+          Toast.show('Changes discarded');
+          render();
+        },
+        resetCompany() {
+          confirmAction('Reset all Company Profile fields to the original default template? This will not be saved until you click Save / Update.', () => {
+            companyDraft = JSON.parse(JSON.stringify(DEFAULT_COMPANY));
+            Toast.show('Default template loaded — click Save / Update to apply');
+            render();
+          });
+        },
+
+        rateField(id, key, val) {
+          const r = rateDraftRows.find(x => x.id === id);
+          if (r) {
+            r[key] = key === 'rate' ? val : val; // keep raw while typing; parsed on save
+            // live-update just this row's action cell without full re-render (preserve focus)
+            const row = document.querySelector(`#rateTable tr[data-id="${id}"]`);
+            if (row) {
+              const actionCell = row.children[3];
+              actionCell.innerHTML = `<button class="btn btn-sm btn-primary" onclick="SettingsModule.saveRate('${id}')">Save</button>
+             <button class="btn btn-sm" onclick="SettingsModule.cancelRate('${id}')">Cancel</button>
+             <button class="row-del" title="Delete" onclick="SettingsModule.deleteRate('${id}')">&times;</button>`;
+            }
+          }
+        },
+        addRate() {
+          rateDraftRows.push({ id: Store.uid(), description: '', unit: 'Sqft.', rate: 0, _isNew: true });
+          render();
+          Toast.show('New rate row added — fill it in and click Save');
+        },
+        saveRate(id) {
+          const draft = rateDraftRows.find(x => x.id === id);
+          if (!draft) return;
+          if (!draft.description || !draft.description.trim()) {
+            Toast.show('Please enter a description before saving');
+            return;
+          }
+          const cleaned = { id: draft.id, description: draft.description.trim(), unit: draft.unit || '', rate: parseFloat(draft.rate) || 0 };
+          let rates = getRates();
+          const idx = rates.findIndex(x => x.id === id);
+          if (idx >= 0) rates[idx] = cleaned; else rates.push(cleaned);
+          const ok = Store.set(DB_KEYS.rates, rates);
+          rateLastSavedAt = Date.now();
+          draft._isNew = false;
+          draft.description = cleaned.description; draft.unit = cleaned.unit; draft.rate = cleaned.rate;
+          Toast.show(ok ? '✓ Rate saved — will remain after refresh' : '⚠ Saved for this session only — browser is blocking permanent storage');
+          render();
+        },
+        cancelRate(id) {
+          const savedEntry = getRates().find(x => x.id === id);
+          if (!savedEntry) {
+            // was never saved — remove the pending row entirely
+            rateDraftRows = rateDraftRows.filter(x => x.id !== id);
+          } else {
+            const draft = rateDraftRows.find(x => x.id === id);
+            if (draft) { draft.description = savedEntry.description; draft.unit = savedEntry.unit; draft.rate = savedEntry.rate; draft._isNew = false; }
+          }
+          render();
+        },
+        deleteRate(id) {
+          confirmAction('Delete this rate from the Rate Master? This cannot be undone.', () => {
+            const rates = getRates().filter(r => r.id !== id);
+            Store.set(DB_KEYS.rates, rates);
+            rateDraftRows = rateDraftRows.filter(r => r.id !== id);
+            Toast.show('Rate deleted');
+            render();
+          });
+        },
+
+        exportData() {
+          const backup = {
+            company: getCompany(), rates: getRates(), bills: getBills(),
+            quotes: getQuotes(), measures: getMeasures(), counters: getCounters(),
+            exportedAt: new Date().toISOString()
+          };
+          const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url; a.download = `RNS-backup-${new Date().toISOString().slice(0, 10)}.json`;
+          a.click();
+          URL.revokeObjectURL(url);
+          Toast.show('Backup file downloaded');
+        },
+        importData(file) {
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            try {
+              const data = JSON.parse(e.target.result);
+              confirmAction('Import this backup? It will replace all current data on this computer.', () => {
+                if (data.company) Store.set(DB_KEYS.company, data.company);
+                if (data.rates) Store.set(DB_KEYS.rates, data.rates);
+                if (data.bills) Store.set(DB_KEYS.bills, data.bills);
+                if (data.quotes) Store.set(DB_KEYS.quotes, data.quotes);
+                if (data.measures) Store.set(DB_KEYS.measures, data.measures);
+                if (data.counters) Store.set(DB_KEYS.counters, data.counters);
+                companyDraft = null; rateDraftRows = null; // force reload from storage
+                Toast.show('Backup imported');
+                render();
+                DashboardModule.refresh();
+              });
+            } catch (err) { Toast.show('Invalid backup file'); }
+          };
+          reader.readAsText(file);
+        },
+        wipeAll() {
+          confirmAction('Erase ALL saved bills, quotations, measurement sheets, company details and rates from this computer? This cannot be undone. Consider exporting a backup first.', () => {
+            Object.values(DB_KEYS).forEach(k => localStorage.removeItem(k));
+            Store._cache = {};
+            companyDraft = null; rateDraftRows = null;
+            Toast.show('All data erased');
+            render();
+            DashboardModule.refresh();
+          });
+        }
+      };
+    })();
+  </script>
+</body>
+
+</html>
